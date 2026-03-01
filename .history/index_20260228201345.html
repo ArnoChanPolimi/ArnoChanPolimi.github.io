@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arno Chan | Polimi Telecommunications</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --polimi-blue: #003058;
+      --accent-blue: #0077b5;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f9f9f9;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      color: var(--polimi-blue);
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 1.1em;
+      color: #666;
+      font-style: italic;
+    }
+
+    .section {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--polimi-blue);
+      padding-bottom: 5px;
+      color: var(--polimi-blue);
+      display: flex;
+      align-items: center;
+    }
+
+    h2 i {
+      margin-right: 10px;
+    }
+
+    .project-card {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 4px solid var(--accent-blue);
+      background: #fcfcfc;
+    }
+
+    .project-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      background: #e0eafc;
+      color: #003058;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      margin-right: 5px;
+      font-weight: bold;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-links a {
+      color: var(--polimi-blue);
+      text-decoration: none;
+      font-size: 1.5em;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent-blue);
+      transform: scale(1.1);
+    }
+
+    #clustrmaps {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Ciao! I'm Arno Chan 👋</h1>
+    <p class="tagline">Exploring the boundaries of Information Theory & Future Wireless Systems</p>
+    <div class="contact-links">
+      <a href="https://github.com/ArnoChanPolimi" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:arnochan2024@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-user-grad"></i> About Me</h2>
+    <p>
+      I am a <b>Telecommunication Engineering</b> Master student at <b>Politecnico di Milano</b>,
+      driven by the challenge of designing the next generation of intelligent and secure connectivity.
+      My technical focus lies at the intersection of <b>Wireless Communication Systems</b>,
+      <b>Digital Signal Processing</b>, <b>Artificial Intelligence</b>, and <b>Network Security</b>.
+    </p>
+    <p>
+      From engineering robust high-frequency transmission links to implementing
+      advanced AI-driven prediction models, I am dedicated to building
+      integrated solutions that are both high-performing and inherently secure.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-satellite-dish"></i> Research Interests</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span class="tech-tag" style="background:#e3f2fd; color:#0d47a1;">Wireless Communication & Propagation</span>
+      <span class="tech-tag" style="background:#e3f2fd; color:#0d47a1;">Next-Gen Signal Processing</span>
+      <span class="tech-tag" style="background:#e3f2fd; color:#0d47a1;">Network Measurement & Architecture</span>
+
+      <span class="tech-tag" style="background:#f1f8e9; color:#33691e;">Vehicle Positioning & Localization</span>
+      <span class="tech-tag" style="background:#f1f8e9; color:#33691e;">mmWave Radar Vital Sign Detection</span>
+
+      <span class="tech-tag" style="background:#fff3e0; color:#e65100;">Neural Networks (PyTorch / TensorFlow)</span>
+      <span class="tech-tag" style="background:#fff3e0; color:#e65100;">Hybrid Recommender Systems</span>
+      <span class="tech-tag" style="background:#fff3e0; color:#e65100;">AI-Driven Network Optimization</span>
+
+      <span class="tech-tag" style="background:#fce4ec; color:#880e4f;">Network Security & Privacy</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-code-branch"></i> What I'm Working On</h2>
+
+    <div class="project-card">
+      <h3>LoS MIMO Capacity Optimization <span style="font-size: 0.7em; color: #999;">(Nokia Collab)</span></h3>
+      <p>Optimizing antenna geometry and power allocation (SVD/Water-filling) to maximize rank in deterministic backhaul
+        links.</p>
+      <span class="tech-tag">MATLAB</span> <span class="tech-tag">Information Theory</span>
+      <br><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank"
+        style="font-size: 0.9em; color: var(--accent-blue);">View Repository →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>mmWave Radar Vital Sign Detection</h3>
+      <p>Non-contact heart rate and breathing rate monitoring using TI IWR6843 radar and Phase Unwrapping algorithms.
+      </p>
+      <span class="tech-tag">Signal Processing</span> <span class="tech-tag">TI Radar</span>
+    </div>
+
+    <div class="project-card">
+      <h3>RecSys PoliMi Challenge 2025</h3>
+      <p>Building hybrid recommender engines with XGBoost and SVD to solve real-world prediction challenges.</p>
+      <span class="tech-tag">Python</span> <span class="tech-tag">Machine Learning</span>
+      <br><a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025" target="_blank"
+        style="font-size: 0.9em; color: var(--accent-blue);">View Repository →</a>
+    </div>
+  </div>
+
+  <div style="text-align: center; opacity: 0.8;">
+    <p style="font-size: 14px; color: gray;">🌍 Visitor Footprints:</p>
+    <script type="text/javascript" id="clustrmaps"
+      src="//clustrmaps.com/map_v2.js?d=T2g4yo1aRlucXGHcz-WaaU7kXb_1o8U7DO4mL56hJAw&cl=ffffff&w=a"></script>
+  </div>
+
+</body>
+
+</html>
