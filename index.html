@@ -12,14 +12,24 @@
       --accent-blue: #0077b5;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #333;
       max-width: 800px;
+      width: 100%;
       margin: 0 auto;
       padding: 40px 20px;
       background: #f9f9f9;
+      overflow-x: hidden;
     }
 
     .header {
@@ -70,6 +80,48 @@
       font-size: 1.2em;
     }
 
+    .about-me p {
+      font-size: 1.02em;
+      color: #3f3f3f;
+      margin: 0 0 15px 0;
+    }
+
+    .about-me .soft-line {
+      color: #5d6470;
+      font-style: italic;
+    }
+
+    .school-strip {
+      margin: 40px 0 60px 0;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 54px;
+      flex-wrap: wrap;
+    }
+
+    .school-card {
+      text-align: center;
+      flex: 0 1 150px;
+    }
+
+    .school-card img {
+      max-width: 150px;
+      height: 75px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .school-card p {
+      font-size: 11px;
+      color: #555;
+      margin-top: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     .tech-tag {
       display: inline-block;
       background: #e0eafc;
@@ -103,55 +155,161 @@
     #clustrmaps {
       margin-top: 40px;
     }
+
+    .visitor-card {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid #dbe8f4;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(0, 119, 181, 0.16) 0 3px, transparent 4px),
+        radial-gradient(circle at 62% 36%, rgba(0, 48, 88, 0.18) 0 3px, transparent 4px),
+        radial-gradient(circle at 82% 68%, rgba(0, 119, 181, 0.14) 0 3px, transparent 4px),
+        linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+    }
+
+    .visitor-visual {
+      color: var(--polimi-blue);
+      font-size: 2.6em;
+      margin-bottom: 12px;
+    }
+
+    .visitor-note {
+      color: #5f6872;
+      max-width: 470px;
+      margin: 0 auto 18px auto;
+    }
+
+    .visitor-actions a {
+      display: inline-block;
+      margin: 6px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+
+    .visitor-actions .primary {
+      background: var(--polimi-blue);
+      color: #fff;
+    }
+
+    .visitor-actions .secondary {
+      background: #edf5fb;
+      color: var(--polimi-blue);
+    }
+
+    .visitor-pixel {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 32px 14px;
+      }
+
+      h1 {
+        font-size: 1.65em;
+        line-height: 1.2;
+      }
+
+      .tagline {
+        font-size: 0.95em;
+      }
+
+      .section {
+        padding: 18px;
+      }
+
+      h2 {
+        font-size: 1.35em;
+      }
+
+      .school-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 0;
+      }
+
+      .school-card {
+        min-width: 0;
+      }
+
+      .school-card img {
+        max-width: 100%;
+        height: 54px;
+      }
+
+      .project-card {
+        padding: 13px;
+      }
+
+      .tech-tag {
+        margin-bottom: 6px;
+      }
+
+      a,
+      p,
+      .project-card,
+      .visitor-note {
+        overflow-wrap: anywhere;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <div class="header">
-    <h1>Ciao! I'm Arno Chan 👋</h1>
+    <h1>Ciao! I'm Hong Chen 👋</h1>
     <p class="tagline">Exploring the boundaries of Information Theory & Future Wireless Systems</p>
     <div class="contact-links">
       <a href="https://github.com/ArnoChanPolimi" target="_blank"><i class="fab fa-github"></i></a>
       <a href="mailto:arnochan2024@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/hong-chen-6608ba337/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section about-me">
     <h2><i class="fas fa-user-grad"></i> About Me</h2>
     <p>
-      I am a <b>Telecommunication Engineering</b> Master student at <b>Politecnico di Milano</b>,
-      driven by the challenge of designing the next generation of intelligent and secure connectivity.
-      My technical focus lies at the intersection of <b>Wireless Communication Systems</b>,
-      <b>Digital Signal Processing</b>, <b>Artificial Intelligence</b>, and <b>Network Security</b>.
+      I am a <b>Telecommunication Engineering</b> master's student at <b>Politecnico di Milano</b>,
+      shaped first by the mountains of Gansu, then by Beijing, Milan, and a brief, luminous season in France.
+      I have always been drawn to two kinds of beauty: the visible kind carried by cities, lakes, weather, and
+      evening light; and the hidden kind inside physics, signals, equations, and machines that quietly agree to work.
     </p>
     <p>
-      From engineering robust high-frequency transmission links to implementing
-      advanced AI-driven prediction models, I am dedicated to building
-      integrated solutions that are both high-performing and inherently secure.
+      My work lives where <b>AI systems</b>, <b>communication networks</b>, and <b>signal processing</b> meet.
+      I care about systems that can be measured honestly: why they fail, where they wait, how information moves,
+      and how many separate machines can learn with something like a shared rhythm.
+    </p>
+    <p class="soft-line">
+      I am still learning how to make thought touch the real world gently: through code, experiments, travel,
+      and the patient habit of asking a better question.
     </p>
   </div>
 
-  <div style="margin: 40px 0 60px 0; padding: 0 20px;">
-    <div style="display: flex; justify-content: center; align-items: center; gap: 80px; flex-wrap: wrap;">
+  <div class="school-strip" aria-label="Education institutions">
+    <div class="school-card">
+      <img src="images/POLIMI_LOGO.svg" alt="Politecnico di Milano">
+      <p>Polimi (Italy)</p>
+    </div>
 
-      <div style="text-align: center; flex: 0 1 150px;">
-        <img src="images/POLIMI_LOGO.svg" alt="Polimi"
-          style="height: 75px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
-        <p
-          style="font-size: 11px; color: #555; margin-top: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
-          Polimi (Italy)</p>
-      </div>
+    <div class="school-card">
+      <img src="images/Logo_ENSEA.svg.png" alt="ENSEA">
+      <p>ENSEA (France)</p>
+    </div>
 
-      <div style="text-align: center; flex: 0 1 150px;">
-        <img src="images/Logo_ENSEA.svg.png" alt="ENSEA"
-          style="height: 75px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
-        <p
-          style="font-size: 11px; color: #555; margin-top: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
-          ENSEA (France)</p>
-      </div>
-
+    <div class="school-card">
+      <img src="images/BIT_LOGO.svg" alt="Beijing Institute of Technology">
+      <p>BIT (China)</p>
     </div>
   </div>
 
@@ -175,6 +333,25 @@
 
   <div class="section">
     <h2><i class="fas fa-code-branch"></i> What I'm Working On</h2>
+
+    <div class="project-card" style="border-left: 4px solid #003058; background: #f0f7ff;">
+      <h3 style="color: #003058;"><i class="fas fa-network-wired"></i> Master Thesis: NCCL & RDMA Performance Tuning
+      </h3>
+      <p>
+        Building an experimental testbed for <b>Distributed LLM Training</b>. I am optimizing <b>NCCL</b>
+        collective communication patterns (All-Reduce) over <b>RoCE v2</b>, tuning <b>DCQCN/PFC</b>
+        to mitigate network incast and maximize GPU utilization.
+      </p>
+      <div style="margin-bottom: 12px;">
+        <span class="tech-tag" style="background:#003058; color:white;">RDMA/RoCEv2</span>
+        <span class="tech-tag" style="background:#003058; color:white;">NVIDIA NCCL</span>
+        <span class="tech-tag" style="background:#003058; color:white;">Performance Tuning</span>
+      </div>
+      <a href="https://github.com/ArnoChanPolimi/NCCL-RDMA-Performance-Tuning" target="_blank"
+        style="color: #0077b5; text-decoration: none; font-weight: bold; font-size: 0.9em;">
+        <i class="fab fa-github"></i> View Live Research Roadmap →
+      </a>
+    </div>
 
     <h3 style="color: #666; border-bottom: 1px dashed #ccc; padding-bottom: 5px; margin-top: 10px;">🤖 AI & Algorithm
       Modeling</h3>
@@ -282,11 +459,24 @@
     <h2 style="justify-content: center;"><i class="fas fa-chart-line"></i> Visitor Footprints</h2>
     <p style="font-size: 13px; color: #888; margin-bottom: 20px;">Tracking global footprints since Feb 2026</p>
 
-    <div style="max-width: 600px; margin: 0 auto; transition: 0.3s;">
-      <a href="https://clustrmaps.com/site/1c676" title="Visit tracker">
-        <img src="https://www.clustrmaps.com/map_v2.png?d=T2g4yo1aRlucXGHcz-WaaU7kXb_1o8U7DO4mL56hJAw&cl=ffffff&w=a"
-          style="width: 100%; border-radius: 8px; filter: grayscale(10%) contrast(1.1);" alt="Map">
-      </a>
+    <div class="visitor-card">
+      <div class="visitor-visual"><i class="fas fa-globe-asia"></i></div>
+      <p class="visitor-note">
+        A quiet record of where this page has traveled. The live counter is hosted off-site, so this panel keeps a
+        graceful doorway even when the external map image is unavailable.
+      </p>
+      <div class="visitor-actions">
+        <a class="primary" href="https://clustrmaps.com/site/1c676" target="_blank" rel="noopener">
+          <i class="fas fa-chart-line"></i> Open Visitor Record
+        </a>
+        <a class="secondary" href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank"
+          rel="noopener">
+          <i class="fas fa-map-marked-alt"></i> Travel Map
+        </a>
+      </div>
+      <img class="visitor-pixel"
+        src="https://www.clustrmaps.com/map_v2.png?d=T2g4yo1aRlucXGHcz-WaaU7kXb_1o8U7DO4mL56hJAw&cl=ffffff&w=a"
+        alt="" aria-hidden="true" onerror="this.remove()">
     </div>
   </div>
 
