@@ -21,7 +21,10 @@
     h1 { margin:0 0 1.25rem; font-size:clamp(2.15rem,4vw,2.65rem); line-height:1.08; letter-spacing:-.035em; }
     .address { margin-bottom:1rem; line-height:1.4; }
     .contact { margin-top:1.05rem; }
-    .contact-links { display:flex; flex-wrap:wrap; gap:.35rem .75rem; margin:.7rem 0 0; font-size:.92rem; }
+    .contact-links { display:flex; flex-wrap:wrap; gap:.35rem .65rem; align-items:center; margin:.7rem 0 0; font-size:.92rem; }
+    .profile-icon { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:5px; }
+    .profile-icon svg { display:block; width:28px; height:28px; }
+    .profile-icon:hover { background:#f3efed; }
     .portrait-frame { width:180px; height:200px; overflow:hidden; border:1px solid #d8d2cf; background:#eee; }
     .portrait { width:100%; height:100%; display:block; object-fit:cover; object-position:center 18%; transform:scale(1.55); transform-origin:50% 18%; }
     .body-grid { display:grid; grid-template-columns:var(--sidebar) minmax(0,1fr); gap:34px; align-items:start; }
@@ -79,8 +82,8 @@
         <p class="contact"><a href="mailto:hong1.chen@mail.polimi.it">hong1.chen@mail.polimi.it</a></p>
         <div class="contact-links" aria-label="External profiles">
           <a href="https://github.com/ArnoChanPolimi" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/hongchen-arno/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://orcid.org/0009-0005-2135-3301" target="_blank" rel="me noopener noreferrer">ORCID</a>
+          <a class="profile-icon" href="https://www.linkedin.com/in/hongchen-arno/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="2" fill="#0a66c2"/><path fill="#fff" d="M5 9h3v10H5zM6.5 4.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5M10 9h2.9v1.4h.04c.4-.76 1.4-1.65 2.9-1.65 3.1 0 3.66 2 3.66 4.6V19h-3v-5c0-1.2-.02-2.75-1.68-2.75-1.68 0-1.94 1.31-1.94 2.66V19H10z"/></svg></a>
+          <a class="profile-icon" href="https://orcid.org/0009-0005-2135-3301" target="_blank" rel="me noopener noreferrer" aria-label="ORCID profile (opens in a new tab)" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#a6ce39"/><circle cx="6.9" cy="6.7" r="1.05" fill="#fff"/><path fill="#fff" d="M6 9h1.8v10H6zM10 5.8h4.4c4.1 0 6.1 2.7 6.1 6.6s-2.3 6.6-6.2 6.6H10V5.8zm1.8 1.7v9.8h2.4c3 0 4.5-1.8 4.5-4.9 0-3-1.5-4.9-4.5-4.9h-2.4z"/></svg></a>
         </div>
       </div>
       <div class="portrait-frame"><img class="portrait" src="images/hong-chen-2024.jpg" alt="Hong Chen in Beijing, 2024"></div>
