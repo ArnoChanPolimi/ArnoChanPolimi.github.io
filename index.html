@@ -1,581 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hong Chen | AI Infrastructure & Networked Systems</title>
-  <meta name="description"
-    content="Hong Chen's portfolio in distributed AI systems, collective communication, RDMA, and networked systems.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hong Chen — telecommunications engineer working on distributed AI systems, collective communication, RDMA, and networked systems.">
+  <title>Hong Chen — Academic Homepage</title>
   <style>
-    :root {
-      --polimi-blue: #003058;
-      --accent-blue: #0077b5;
+    :root { --ink:#3e3939; --muted:#6f6868; --accent:#a3272f; --rule:#ddd6d3; --paper:#fff; --sidebar:140px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.48 Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover,a:focus-visible { text-decoration:underline; }
+    a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    p { margin:0 0 .85rem; }
+    h1,h2,h3 { color:#433d3d; }
+    .page { width:min(1180px,calc(100% - 72px)); margin:0 auto; padding:46px 0 70px; }
+    .identity { display:grid; grid-template-columns:245px 180px; gap:44px; align-items:start; min-height:270px; }
+    .eyebrow { margin:0 0 1rem; color:var(--muted); font-size:1.05rem; }
+    h1 { margin:0 0 1.25rem; font-size:clamp(2.15rem,4vw,2.65rem); line-height:1.08; letter-spacing:-.035em; }
+    .address { margin-bottom:1rem; line-height:1.4; }
+    .contact { margin-top:1.05rem; }
+    .contact-links { display:flex; flex-wrap:wrap; gap:.35rem .75rem; margin:.7rem 0 0; font-size:.92rem; }
+    .portrait-frame { width:180px; height:200px; overflow:hidden; border:1px solid #d8d2cf; background:#eee; }
+    .portrait { width:100%; height:100%; display:block; object-fit:cover; object-position:center 18%; transform:scale(1.55); transform-origin:50% 18%; }
+    .body-grid { display:grid; grid-template-columns:var(--sidebar) minmax(0,1fr); gap:34px; align-items:start; }
+    .side-nav { position:sticky; top:24px; padding:7px 22px 8px 0; border-right:1px solid var(--rule); }
+    .side-nav a { display:block; padding:.24rem 0; font-size:1rem; }
+    .content { max-width:930px; }
+    .intro { margin:0 0 1.65rem; }
+    .intro strong { font-weight:700; }
+    .research-line { margin-top:1.05rem; }
+    section { scroll-margin-top:20px; margin-top:2.1rem; }
+    section:first-of-type { margin-top:0; }
+    h2 { margin:0 0 .7rem; padding-bottom:.22rem; border-bottom:1px solid var(--rule); font-size:1.55rem; line-height:1.25; font-weight:600; }
+    ul { margin:.25rem 0 0; padding-left:1.25rem; }
+    li { margin:0 0 .65rem; padding-left:.15rem; }
+    .news time { color:var(--muted); font-variant-numeric:tabular-nums; }
+    .publication,.project { margin:0 0 1.05rem; }
+    .publication-title,.project-title { font-weight:700; }
+    .meta { color:var(--muted); font-size:.93rem; }
+    .links { margin-top:.18rem; font-size:.92rem; }
+    .links a+a::before { content:' · '; color:var(--muted); }
+    .education-list { list-style:none; padding:0; }
+    .education-list li { display:grid; grid-template-columns:92px minmax(0,1fr); gap:12px; margin-bottom:.7rem; padding:0; }
+    .education-list time { color:var(--muted); }
+    .institution-marks { display:flex; align-items:center; gap:34px; margin:1.1rem 0 0; }
+    .institution-marks img { width:auto; max-width:120px; height:48px; object-fit:contain; }
+    .travel-link { padding:.75rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    footer { margin-top:3rem; color:var(--muted); font-size:.86rem; }
+    @media (max-width:760px) {
+      .page { width:min(100% - 32px,640px); padding-top:28px; }
+      .identity { grid-template-columns:minmax(0,1fr) 118px; gap:24px; min-height:0; margin-bottom:30px; }
+      .portrait-frame { width:118px; height:132px; }
+      .body-grid { display:block; }
+      .side-nav { position:static; display:flex; gap:.25rem 1rem; overflow-x:auto; margin:0 0 1.5rem; padding:.65rem 0; border:solid var(--rule); border-width:1px 0; white-space:nowrap; }
+      .side-nav a { flex:0 0 auto; }
+      .education-list li { grid-template-columns:72px minmax(0,1fr); }
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      overflow-x: hidden;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      max-width: 800px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 40px 20px;
-      background: #f9f9f9;
-      overflow-x: hidden;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 30px;
-      padding: 42px 44px;
-      border: 1px solid #d9e7f2;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #ffffff 0%, #edf6fc 100%);
-      box-shadow: 0 12px 32px rgba(0, 48, 88, 0.08);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      bottom: -110px;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(0, 119, 181, 0.08);
-      pointer-events: none;
-    }
-
-    .hero-kicker {
-      margin: 0 0 9px;
-      color: var(--accent-blue);
-      font-size: 0.78rem;
-      font-weight: 750;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: var(--polimi-blue);
-      font-size: clamp(2.4rem, 8vw, 4.3rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
-    }
-
-    .hero-focus {
-      position: relative;
-      z-index: 1;
-      max-width: 650px;
-      margin: 18px 0 10px;
-      color: #163d5c;
-      font-size: clamp(1.05rem, 2.7vw, 1.35rem);
-      font-weight: 650;
-      line-height: 1.4;
-    }
-
-    .hero-summary {
-      position: relative;
-      z-index: 1;
-      max-width: 610px;
-      margin: 0;
-      color: #526575;
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .section {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      border-bottom: 2px solid var(--polimi-blue);
-      padding-bottom: 5px;
-      color: var(--polimi-blue);
-      display: flex;
-      align-items: center;
-    }
-
-    h2 i {
-      margin-right: 10px;
-    }
-
-    .project-card {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-left: 4px solid var(--accent-blue);
-      background: #fcfcfc;
-    }
-
-    .project-card h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.2em;
-    }
-
-    .about-me .about-lead {
-      color: #173e5e;
-      font-size: 1.08em;
-      font-weight: 550;
-    }
-
-    .about-me p {
-      font-size: 1.02em;
-      color: #3f3f3f;
-      margin: 0 0 15px 0;
-    }
-
-    .about-me p:last-child {
-      margin-bottom: 0;
-    }
-
-    .school-strip {
-      margin: 40px 0 60px 0;
-      padding: 0 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 54px;
-      flex-wrap: wrap;
-    }
-
-    .school-card {
-      text-align: center;
-      flex: 0 1 150px;
-    }
-
-    .school-card img {
-      max-width: 150px;
-      height: 75px;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-    }
-
-    .school-card p {
-      font-size: 11px;
-      color: #555;
-      margin-top: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .tech-tag {
-      display: inline-block;
-      background: #e0eafc;
-      color: #003058;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 0.85em;
-      margin-right: 5px;
-      font-weight: bold;
-    }
-
-    .contact-links {
-      display: flex;
-      position: relative;
-      z-index: 1;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 12px;
-      border: 1px solid #c9dce9;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--polimi-blue);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 650;
-      transition: 0.3s;
-    }
-
-    .contact-links a:hover {
-      color: var(--accent-blue);
-      border-color: var(--accent-blue);
-      transform: translateY(-2px);
-    }
-
-    #clustrmaps {
-      margin-top: 40px;
-    }
-
-    .visitor-card {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 24px;
-      border: 1px solid #dbe8f4;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 18% 28%, rgba(0, 119, 181, 0.16) 0 3px, transparent 4px),
-        radial-gradient(circle at 62% 36%, rgba(0, 48, 88, 0.18) 0 3px, transparent 4px),
-        radial-gradient(circle at 82% 68%, rgba(0, 119, 181, 0.14) 0 3px, transparent 4px),
-        linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
-    }
-
-    .visitor-visual {
-      color: var(--polimi-blue);
-      font-size: 2.6em;
-      margin-bottom: 12px;
-    }
-
-    .visitor-note {
-      color: #5f6872;
-      max-width: 470px;
-      margin: 0 auto 18px auto;
-    }
-
-    .visitor-actions a {
-      display: inline-block;
-      margin: 6px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.9em;
-      font-weight: 600;
-    }
-
-    .visitor-actions .primary {
-      background: var(--polimi-blue);
-      color: #fff;
-    }
-
-    .visitor-actions .secondary {
-      background: #edf5fb;
-      color: var(--polimi-blue);
-    }
-
-    .visitor-pixel {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 32px 14px;
-      }
-
-      .hero {
-        padding: 30px 22px;
-        border-radius: 14px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.25rem, 15vw, 3.2rem);
-      }
-
-      .hero-focus {
-        margin-top: 15px;
-        font-size: 1.05rem;
-      }
-
-      .hero-summary {
-        font-size: 0.93rem;
-      }
-
-      .contact-links a {
-        justify-content: center;
-        gap: 5px;
-        padding: 8px 6px;
-        font-size: 0.78rem;
-        white-space: nowrap;
-      }
-
-      .contact-links {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .section {
-        padding: 18px;
-      }
-
-      h2 {
-        font-size: 1.35em;
-      }
-
-      .school-strip {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-        padding: 0;
-      }
-
-      .school-card {
-        min-width: 0;
-      }
-
-      .school-card img {
-        max-width: 100%;
-        height: 54px;
-      }
-
-      .project-card {
-        padding: 13px;
-      }
-
-      .tech-tag {
-        margin-bottom: 6px;
-      }
-
-      a,
-      p,
-      .project-card,
-      .visitor-note {
-        overflow-wrap: anywhere;
-      }
+    @media (max-width:480px) {
+      body { font-size:15px; }
+      .page { width:min(100% - 26px,420px); }
+      .identity { grid-template-columns:1fr; }
+      .portrait-frame { grid-row:1; width:106px; height:118px; }
+      h1 { font-size:2.25rem; }
+      .institution-marks { gap:20px; flex-wrap:wrap; }
     }
   </style>
 </head>
-
 <body>
-
-  <header class="hero">
-    <p class="hero-kicker">Telecommunications Engineer · AI Infrastructure</p>
-    <h1>Hong Chen</h1>
-    <p class="hero-focus">Distributed AI Systems · Collective Communication · Networked Systems</p>
-    <p class="hero-summary">
-      I build and evaluate communication systems for distributed AI training, with a focus on collective scheduling,
-      RDMA, and adaptive wide-area networks.
-    </p>
-    <div class="contact-links">
-      <a href="https://github.com/ArnoChanPolimi" target="_blank" rel="noopener noreferrer"
-        aria-label="Hong Chen on GitHub"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/hongchen-arno/" target="_blank" rel="noopener noreferrer"
-        aria-label="Hong Chen on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="mailto:arnochan2024@gmail.com" aria-label="Email Hong Chen"><i class="fas fa-envelope"></i> Email</a>
-    </div>
-  </header>
-
-  <div class="section about-me">
-    <h2><i class="fas fa-user-grad"></i> About Me</h2>
-    <p class="about-lead">
-      I am a master's student in <b>Telecommunication Engineering</b> at <b>Politecnico di Milano</b>, working at the
-      intersection of distributed AI systems and communication networks.
-    </p>
-    <p>
-      My current research studies how collective communication can adapt when GPU workers are separated by a dynamic
-      WAN. I build end-to-end systems with <b>PyTorch FSDP</b>, <b>NCCL/MSCCL</b>, and <b>RoCEv2 RDMA</b>, connecting
-      collective-schedule decisions with multipath traffic steering and network telemetry.
-    </p>
-    <p>
-      Before graduate research, I worked on <b>carrier-grade gateway forwarding software</b>, developing and validating
-      C/IPsec functionality in a large production codebase. I am interested in internship and research opportunities
-      in <b>AI infrastructure</b>, <b>distributed systems</b>, and <b>high-performance networking</b>.
-    </p>
-  </div>
-
-  <div class="school-strip" aria-label="Education institutions">
-    <div class="school-card">
-      <img src="images/POLIMI_LOGO.svg" alt="Politecnico di Milano">
-      <p>Polimi (Italy)</p>
-    </div>
-
-    <div class="school-card">
-      <img src="images/Logo_ENSEA.svg.png" alt="ENSEA">
-      <p>ENSEA (France)</p>
-    </div>
-
-    <div class="school-card">
-      <img src="images/BIT_LOGO.svg" alt="Beijing Institute of Technology">
-      <p>BIT (China)</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2><i class="fas fa-satellite-dish"></i> Research Interests</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-      <span class="tech-tag" style="background:#e3f2fd; color:#0d47a1;">Wireless Communication & Propagation</span>
-      <span class="tech-tag" style="background:#e3f2fd; color:#0d47a1;">Next-Gen Signal Processing</span>
-      <span class="tech-tag" style="background:#e3f2fd; color:#0d47a1;">Network Measurement & Architecture</span>
-
-      <span class="tech-tag" style="background:#f1f8e9; color:#33691e;">Vehicle Positioning & Localization</span>
-      <span class="tech-tag" style="background:#f1f8e9; color:#33691e;">mmWave Radar Vital Sign Detection</span>
-
-      <span class="tech-tag" style="background:#fff3e0; color:#e65100;">Neural Networks (PyTorch / TensorFlow)</span>
-      <span class="tech-tag" style="background:#fff3e0; color:#e65100;">Hybrid Recommender Systems</span>
-      <span class="tech-tag" style="background:#fff3e0; color:#e65100;">AI-Driven Network Optimization</span>
-
-      <span class="tech-tag" style="background:#fce4ec; color:#880e4f;">Network Security & Privacy</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2><i class="fas fa-code-branch"></i> What I'm Working On</h2>
-
-    <div class="project-card" style="border-left: 4px solid #003058; background: #f0f7ff;">
-      <h3 style="color: #003058;"><i class="fas fa-network-wired"></i> Master's Thesis: Collective Communication & WAN Adaptation
-      </h3>
-      <p>
-        Building an end-to-end experimental platform for <b>cross-datacenter distributed AI training</b>,
-        coordinating WAN-aware <b>NCCL/MSCCL All-Gather schedules</b> with per-channel
-        <b>RoCEv2 RDMA path steering</b> under dynamic multipath WAN conditions.
-      </p>
-      <div style="margin-bottom: 12px;">
-        <span class="tech-tag" style="background:#003058; color:white;">Distributed AI Training</span>
-        <span class="tech-tag" style="background:#003058; color:white;">NCCL/MSCCL</span>
-        <span class="tech-tag" style="background:#003058; color:white;">RoCEv2 RDMA</span>
-        <span class="tech-tag" style="background:#003058; color:white;">Multipath WAN</span>
+  <main class="page">
+    <header class="identity">
+      <div>
+        <p class="eyebrow">Telecommunications Engineer</p>
+        <h1>Hong Chen</h1>
+        <p class="address">Politecnico di Milano<br>Telecommunication Engineering<br>Milan, Italy</p>
+        <p class="contact"><a href="mailto:hong1.chen@mail.polimi.it">hong1.chen@mail.polimi.it</a></p>
+        <div class="contact-links" aria-label="External profiles">
+          <a href="https://github.com/ArnoChanPolimi" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/hongchen-arno/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://orcid.org/0009-0005-2135-3301" target="_blank" rel="me noopener noreferrer">ORCID</a>
+        </div>
       </div>
-      <a href="https://github.com/ArnoChanPolimi/cross-dc-ai-training-testbed" target="_blank"
-        rel="noopener noreferrer"
-        style="color: #0077b5; text-decoration: none; font-weight: bold; font-size: 0.9em;">
-        <i class="fab fa-github"></i> View Thesis Project →
-      </a>
-    </div>
+      <div class="portrait-frame"><img class="portrait" src="images/hong-chen-2024.jpg" alt="Hong Chen in Beijing, 2024"></div>
+    </header>
 
-    <h3 style="color: #666; border-bottom: 1px dashed #ccc; padding-bottom: 5px; margin-top: 10px;">🤖 AI & Algorithm
-      Modeling</h3>
+    <div class="body-grid">
+      <nav class="side-nav" aria-label="Page sections">
+        <a href="#about">About</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#travel">Travel</a>
+      </nav>
+      <div class="content">
+        <section id="about">
+          <div class="intro">
+            <p><strong>About:</strong> I am a master's student in <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">Telecommunication Engineering at Politecnico di Milano</a>, working at the intersection of distributed AI systems and communication networks.</p>
+            <p>My current research studies how collective communication can adapt when GPU workers are separated by a dynamic wide-area network. I build end-to-end systems with PyTorch FSDP, NCCL/MSCCL, and RoCEv2 RDMA, connecting collective-schedule decisions with multipath traffic steering and network telemetry.</p>
+            <p>Before graduate research, I worked on carrier-grade gateway forwarding software, developing and validating C/IPsec functionality in a large production codebase. I am interested in internship and research opportunities in AI infrastructure, distributed systems, and high-performance networking.</p>
+            <p class="research-line"><strong>Research interests:</strong> Distributed AI systems, collective communication, high-performance networking, network measurement, wireless communication, and signal processing.</p>
+          </div>
+        </section>
 
-    <div class="project-card">
-      <h3>Scalable Recommender System <span style="font-size: 0.7em; color: #999;">(Kaggle Challenge)</span></h3>
-      <p>Developed a Weighted Hybrid Ensemble (EASE, SLIM, iALS) on a 3.8M interaction dataset. Optimized Top-N ranking
-        via Bayesian search.</p>
-      <span class="tech-tag">Python</span> <span class="tech-tag">GCP</span> <span class="tech-tag">Matrix
-        Modeling</span>
+        <section id="news" class="news">
+          <h2>News</h2>
+          <ul>
+            <li><time>Aug. 2026</time> — Submitted our paper on joint CCL re-optimization and WAN re-routing for cross-datacenter training to INET4AI 2026, an ACM CoNEXT workshop.</li>
+          </ul>
+        </section>
 
-      <div style="margin-top: 12px;">
-        <a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025.git" target="_blank"
-          style="font-size: 0.9em; color: var(--accent-blue); text-decoration: none; margin-right: 15px;">
-          <i class="fab fa-github"></i> View Repository →
-        </a>
+        <section id="research">
+          <h2>Research</h2>
+          <div class="publication">
+            <div class="publication-title">Master's Thesis: Collective Communication and WAN Adaptation</div>
+            <div>End-to-end coordination of WAN-aware NCCL/MSCCL All-Gather schedules with per-channel RoCEv2 RDMA path steering under dynamic multipath WAN conditions.</div>
+            <div class="meta">Distributed AI training · Collective communication · RDMA · Multipath WAN</div>
+            <div class="links"><a href="https://github.com/ArnoChanPolimi/cross-dc-ai-training-testbed" target="_blank" rel="noopener noreferrer">project repository</a></div>
+          </div>
+        </section>
 
-        <a href="https://www.kaggle.com/competitions/recommender-systems-2025-challenge-polimi/leaderboard"
-          target="_blank" style="font-size: 0.9em; color: #20beff; text-decoration: none;">
-          <i class="fab fa-kaggle"></i> Kaggle Leaderboard →
-        </a>
+        <section id="publications">
+          <h2>Publications</h2>
+          <div class="publication">
+            <div class="publication-title">An Experimental Testbed for Joint CCL Re-optimization and WAN Re-routing in Cross-Datacenter Training</div>
+            <div><strong>Hong Chen</strong>, Hao Zhou, Michele Ferrero, Liwen Cui, Qiaolun Zhang, Jiaheng Xiong, Paolo Medagliani, Pham Tran Anh Quang, Mëmëdhe Ibrahimi, Francesco Musumeci, and Massimo Tornatore.</div>
+            <div class="meta">Submitted to INET4AI 2026 (2nd Workshop on Inter-networking Challenges for AI, ACM CoNEXT Workshop), August 2026.</div>
+            <div class="links"><a href="https://orcid.org/0009-0005-2135-3301" target="_blank" rel="me noopener noreferrer">ORCID record</a></div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <h2>Selected Projects</h2>
+          <div class="project"><div class="project-title">Scalable Recommender System</div><div>Weighted hybrid ensemble combining EASE, SLIM, and iALS on a 3.8M-interaction dataset, with Bayesian optimization for Top-N ranking.</div><div class="meta">Python · GCP · Matrix modeling</div><div class="links"><a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025" target="_blank" rel="noopener noreferrer">code</a><a href="https://www.kaggle.com/competitions/recommender-systems-2025-challenge-polimi/leaderboard" target="_blank" rel="noopener noreferrer">Kaggle</a></div></div>
+          <div class="project"><div class="project-title">Biometric Sensing and Computer Vision</div><div>Remote photoplethysmography pipeline using Res10-SSD for region-of-interest detection and FFT-based heart-rate extraction from video traces.</div><div class="meta">PyTorch · Computer vision · Biometrics</div><div class="links"><a href="https://github.com/ArnoChanPolimi/LAB_Nearable2025" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Image Classification and Website Fingerprinting</div><div>MobileNetV3 for edge image inference and website fingerprinting through tshark/biflow feature extraction.</div><div class="meta">Transfer learning · Traffic analysis</div><div class="links"><a href="https://github.com/ArnoChanPolimi/CGI2026" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Statistical Inference and Learning</div><div>MLE, MAP, and GLRT detectors for signal estimation; SVMs with RBF kernels and Tikhonov regularization for robust modeling.</div><div class="meta">MATLAB · Statistical inference · Machine learning</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Signal-Processing-and-Learning" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Contactless Vital-Sign Detection with 60 GHz FMCW Radar</div><div>Breathing- and heart-rate estimation from TI IWR6843 radar data using range selection, phase unwrapping, and spectral analysis.</div><div class="meta">FMCW radar · Signal processing · MATLAB</div><div class="links"><a href="https://arnochanpolimi.github.io/mmWave-Radar-Vital-Sign-Detection/" target="_blank" rel="noopener noreferrer">project page</a></div></div>
+          <div class="project"><div class="project-title">LoS MIMO Capacity Optimization</div><div>Spectral-efficiency optimization using the Rayleigh criterion and SVD-based water-filling power allocation for 2×2 line-of-sight links.</div><div class="meta">MIMO · Information theory · Optimization · Nokia collaboration</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank" rel="noopener noreferrer">code</a></div></div>
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+          <ul class="education-list">
+            <li><time>Current</time><span><strong>Politecnico di Milano</strong>, Italy — M.Sc. in Telecommunication Engineering</span></li>
+            <li><time>Exchange</time><span><strong>ENSEA</strong>, France — Academic exchange and research projects</span></li>
+            <li><time>Previous</time><span><strong>Beijing Institute of Technology</strong>, China</span></li>
+          </ul>
+          <div class="institution-marks" aria-label="Education institutions"><img src="images/POLIMI_LOGO.svg" alt="Politecnico di Milano"><img src="images/Logo_ENSEA.svg.png" alt="ENSEA"><img src="images/BIT_LOGO.svg" alt="Beijing Institute of Technology"></div>
+        </section>
+
+        <section id="travel">
+          <h2>Travel</h2>
+          <p>I keep a personal map of places I have visited alongside my academic and engineering work.</p>
+          <p class="travel-link"><a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">Open my travel map</a> · <a href="https://clustrmaps.com/site/1c676" target="_blank" rel="noopener noreferrer">Visitor record</a></p>
+        </section>
+        <footer>Last updated September 2026 · Hong Chen</footer>
       </div>
     </div>
-
-    <div class="project-card">
-      <h3>Biometric Sensing & Computer Vision (RPPG)</h3>
-      <p>Remote Photoplethysmography pipeline: Res10-SSD for ROI detection and FFT for heart rate extraction from video
-        traces.</p>
-      <span class="tech-tag">PyTorch</span> <span class="tech-tag">FFT</span> <span class="tech-tag">Biometrics</span>
-      <br><a href="https://github.com/ArnoChanPolimi/LAB_Nearable2025" target="_blank"
-        style="font-size: 0.9em; color: var(--accent-blue); text-decoration: none;"><i class="fab fa-github"></i> View
-        Repository →</a>
-    </div>
-
-    <div class="project-card">
-      <h3>Classification: Image & Website Fingerprinting</h3>
-      <p>MobileNetV3 for edge inference and Website Fingerprinting via tshark/Biflow feature extraction.</p>
-      <span class="tech-tag">Transfer Learning</span> <span class="tech-tag">Traffic Analysis (tshark)</span>
-      <br><a href="https://github.com/ArnoChanPolimi/CGI2026" target="_blank"
-        style="font-size: 0.9em; color: var(--accent-blue); text-decoration: none;"><i class="fab fa-github"></i> View
-        Repository →</a>
-    </div>
-
-    <h3 style="color: #666; border-bottom: 1px dashed #ccc; padding-bottom: 5px; margin-top: 35px;">📡 Signal Processing
-      & Sensing Algorithms</h3>
-
-    <div class="project-card">
-      <h3>Statistical Inference & Learning (SP&L)</h3>
-      <p>MLE/MAP/GLRT detectors for signal estimation; SVM with RBF kernels and Tikhonov Regularization for robust
-        modeling.</p>
-      <span class="tech-tag">MATLAB</span> <span class="tech-tag">Statistical Inference</span> <span
-        class="tech-tag">Machine Learning</span>
-      <br><a href="https://github.com/ArnoChanPolimi/Signal-Processing-and-Learning" target="_blank"
-        style="font-size: 0.9em; color: var(--accent-blue); text-decoration: none;"><i class="fab fa-github"></i> View
-        Repository →</a>
-    </div>
-
-    <div class="project-card">
-      <h3>mmWave Radar Vital Sign Monitoring</h3>
-      <p>Tracking BR/HR using Phase Unwrapping and Vibration-FFT on TI IWR6843 radar; validated against Hexoskin
-        sensors.</p>
-      <span class="tech-tag">TI Radar</span> <span class="tech-tag">Signal Processing</span> <span
-        class="tech-tag">MATLAB</span>
-      <br><a href="https://arnochanpolimi.github.io/mmWave-Radar-Vital-Sign-Detection/" target="_blank"
-        style="font-size: 0.9em; color: var(--accent-blue); text-decoration: none;"><i
-          class="fas fa-external-link-alt"></i> View Project Page →</a>
-    </div>
-
-    <div class="project-card">
-      <h3>LoS MIMO Capacity Optimization <span style="font-size: 0.7em; color: #999;">(Nokia Collab)</span></h3>
-      <p>Maximizing spectral efficiency via Rayleigh Criterion and SVD-based Water-filling power allocation in 2x2 LoS
-        links.</p>
-      <span class="tech-tag">MIMO</span> <span class="tech-tag">Information Theory</span> <span
-        class="tech-tag">Optimization</span>
-      <br><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank"
-        style="font-size: 0.9em; color: var(--accent-blue); text-decoration: none;"><i class="fab fa-github"></i> View
-        Repository →</a>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2><i class="fas fa-map-marked-alt"></i> My Travel Map</h2>
-    <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">
-      "Engineering is my logic, traveling is my soul." Exploring the world, one coordinate at a time.
-    </p>
-
-    <div
-      style="width: 100%; height: 500px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eee; background: #fff;">
-      <iframe src="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" width="100%" height="100%"
-        style="border:0;" title="Arno's Travel Map" loading="lazy">
-      </iframe>
-    </div>
-
-    <p style="text-align: right; margin-top: 10px;">
-      <a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank"
-        style="font-size: 0.85em; color: var(--accent-blue); text-decoration: none;">
-        <i class="fas fa-external-link-alt"></i> Open Map in Full Screen
-      </a>
-    </p>
-  </div>
-
-  <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
-
-  <div class="section" style="text-align: center;">
-    <h2 style="justify-content: center;"><i class="fas fa-chart-line"></i> Visitor Footprints</h2>
-    <p style="font-size: 13px; color: #888; margin-bottom: 20px;">Tracking global footprints since Feb 2026</p>
-
-    <div class="visitor-card">
-      <div class="visitor-visual"><i class="fas fa-globe-asia"></i></div>
-      <p class="visitor-note">
-        A quiet record of where this page has traveled. The live counter is hosted off-site, so this panel keeps a
-        graceful doorway even when the external map image is unavailable.
-      </p>
-      <div class="visitor-actions">
-        <a class="primary" href="https://clustrmaps.com/site/1c676" target="_blank" rel="noopener">
-          <i class="fas fa-chart-line"></i> Open Visitor Record
-        </a>
-        <a class="secondary" href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank"
-          rel="noopener">
-          <i class="fas fa-map-marked-alt"></i> Travel Map
-        </a>
-      </div>
-      <img class="visitor-pixel"
-        src="https://www.clustrmaps.com/map_v2.png?d=T2g4yo1aRlucXGHcz-WaaU7kXb_1o8U7DO4mL56hJAw&cl=ffffff&w=a"
-        alt="" aria-hidden="true" onerror="this.remove()">
-    </div>
-  </div>
-
+  </main>
 </body>
-
 </html>
