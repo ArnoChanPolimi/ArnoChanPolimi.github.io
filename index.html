@@ -30,8 +30,10 @@
     .body-grid { display:grid; grid-template-columns:var(--sidebar) minmax(0,1fr); gap:34px; align-items:start; }
     .side-nav { position:sticky; top:24px; padding:7px 22px 8px 0; border-right:1px solid var(--rule); }
     .side-nav a { display:block; padding:.24rem 0; font-size:1rem; }
-    .content { max-width:930px; }
-    .intro { margin:0 0 1.65rem; line-height:1.65; max-width:78ch; }
+    .content { width:100%; min-width:0; max-width:930px; }
+    .intro { width:100%; margin:0 0 1.65rem; }
+    .intro p,.news li,#research .publication > div:nth-child(2),.project > div:nth-child(2) { text-align:justify; text-align-last:left; hyphens:manual; overflow-wrap:break-word; line-height:1.6; }
+    .intro p { margin-bottom:1rem; }
     .intro strong { font-weight:700; }
     .research-line { margin-top:1.05rem; }
     section { scroll-margin-top:20px; margin-top:2.1rem; }
@@ -53,6 +55,7 @@
     .travel-link { padding:.75rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     footer { margin-top:3rem; color:var(--muted); font-size:.86rem; }
     @media (max-width:760px) {
+      .intro p,.news li,#research .publication > div:nth-child(2),.project > div:nth-child(2) { hyphens:auto; }
       .page { width:min(100% - 32px,640px); padding-top:28px; }
       .identity { grid-template-columns:minmax(0,1fr) 118px; gap:24px; min-height:0; margin-bottom:30px; }
       .portrait-frame { width:118px; height:132px; }
