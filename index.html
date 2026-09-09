@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hong Chen — telecommunications engineer working on distributed AI systems, collective communication, RDMA, and networked systems.">
+  <meta name="description" content="Hong Chen, a Telecommunication Engineering master's student at Politecnico di Milano, researching communication for distributed AI training.">
   <title>Hong Chen — Academic Homepage</title>
   <style>
     :root { --ink:#3e3939; --muted:#6f6868; --accent:#a3272f; --rule:#ddd6d3; --paper:#fff; --sidebar:140px; }
@@ -16,7 +16,7 @@
     p { margin:0 0 .85rem; }
     h1,h2,h3 { color:#433d3d; }
     .page { width:min(1180px,calc(100% - 72px)); margin:0 auto; padding:46px 0 70px; }
-    .identity { display:grid; grid-template-columns:245px 180px; gap:44px; align-items:start; min-height:270px; }
+    .identity { display:grid; grid-template-columns:245px 180px; gap:44px; align-items:start; min-height:270px; margin-bottom:20px; }
     .eyebrow { margin:0 0 1rem; color:var(--muted); font-size:1.05rem; }
     h1 { margin:0 0 1.25rem; font-size:clamp(2.15rem,4vw,2.65rem); line-height:1.08; letter-spacing:-.035em; }
     .address { margin-bottom:1rem; line-height:1.4; }
@@ -26,12 +26,12 @@
     .profile-icon svg { display:block; width:28px; height:28px; }
     .profile-icon:hover { background:#f3efed; }
     .portrait-frame { width:180px; height:200px; overflow:hidden; border:1px solid #d8d2cf; background:#eee; }
-    .portrait { width:100%; height:100%; display:block; object-fit:cover; object-position:center 18%; transform:scale(1.55); transform-origin:50% 18%; }
+    .portrait { width:100%; height:100%; display:block; object-fit:cover; object-position:54% 30%; transform:scale(2.3); transform-origin:54% 30%; }
     .body-grid { display:grid; grid-template-columns:var(--sidebar) minmax(0,1fr); gap:34px; align-items:start; }
     .side-nav { position:sticky; top:24px; padding:7px 22px 8px 0; border-right:1px solid var(--rule); }
     .side-nav a { display:block; padding:.24rem 0; font-size:1rem; }
     .content { max-width:930px; }
-    .intro { margin:0 0 1.65rem; }
+    .intro { margin:0 0 1.65rem; line-height:1.65; max-width:78ch; }
     .intro strong { font-weight:700; }
     .research-line { margin-top:1.05rem; }
     section { scroll-margin-top:20px; margin-top:2.1rem; }
@@ -76,7 +76,7 @@
   <main class="page">
     <header class="identity">
       <div>
-        <p class="eyebrow">Telecommunications Engineer</p>
+        <p class="eyebrow">M.Sc. Student · Telecommunication Engineering</p>
         <h1>Hong Chen</h1>
         <p class="address">Politecnico di Milano<br>Telecommunication Engineering<br>Milan, Italy</p>
         <p class="contact"><a href="mailto:hong1.chen@mail.polimi.it">hong1.chen@mail.polimi.it</a></p>
@@ -86,7 +86,7 @@
           <a class="profile-icon" href="https://orcid.org/0009-0005-2135-3301" target="_blank" rel="me noopener noreferrer" aria-label="ORCID profile (opens in a new tab)" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#a6ce39"/><circle cx="6.9" cy="6.7" r="1.05" fill="#fff"/><path fill="#fff" d="M6 9h1.8v10H6zM10 5.8h4.4c4.1 0 6.1 2.7 6.1 6.6s-2.3 6.6-6.2 6.6H10V5.8zm1.8 1.7v9.8h2.4c3 0 4.5-1.8 4.5-4.9 0-3-1.5-4.9-4.5-4.9h-2.4z"/></svg></a>
         </div>
       </div>
-      <div class="portrait-frame"><img class="portrait" src="images/hong-chen-2024.jpg" alt="Hong Chen in Beijing, 2024"></div>
+      <div class="portrait-frame"><img class="portrait" src="images/hong-chen-copenhagen-2026.jpg" alt="Hong Chen in Copenhagen, 2026"></div>
     </header>
 
     <div class="body-grid">
@@ -96,20 +96,18 @@
       <div class="content">
         <section id="about">
           <div class="intro">
-            <p><strong>About me:</strong> I am a master's student in <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">Telecommunication Engineering at Politecnico di Milano</a>. My work brings together communication networks and distributed AI systems, with a focus on how computing and networking can work together to support large-scale training.</p>
-            <p>I earned my undergraduate degree in Electronic Information Engineering from the School of Information and Electronics at Beijing Institute of Technology. I was fortunate to conduct my undergraduate research under the guidance of Qin Zhang and his team. My thesis, <em>Research on Multi-node Cooperative Directional Transmission Technology in Ad Hoc Networks</em>, studied how wireless nodes can synchronize and cooperate to transmit signals in a chosen direction. It focused on joint time and frequency synchronization and feedback-based distributed beamforming, evaluated through simulation.</p>
-            <p>In the autumn semester of 2025, I joined ENSEA in France through the Erasmus exchange programme, studying computer networks, wireless communications, and network and software security.</p>
-            <p>My current master's research explores collective communication across geographically distributed GPU workers. I study how collective schedules and network routing can adapt together as wide-area network conditions change. Using PyTorch FSDP, NCCL/MSCCL, and RoCEv2 RDMA, I build and evaluate systems that connect All-Gather scheduling, per-channel multipath traffic steering, and network telemetry. From coordinating wireless transmitters to coordinating GPU communication, my research has centered on how distributed nodes exchange information effectively.</p>
-            <p>My engineering experience also includes carrier-grade gateway forwarding software, where I developed and validated C/IPsec functionality in a large production codebase. Alongside this work, my academic projects have covered recommender systems, computer vision, contactless vital-sign sensing, and MIMO communications. These experiences connect my background in signal processing and communication theory with practical software development and experimental evaluation.</p>
-            <p>I am interested in internship and research opportunities in AI infrastructure, distributed systems, and high-performance networking, particularly work that combines building systems with understanding their behavior through measurement. Outside engineering, I enjoy traveling and documenting the places I visit through my personal travel map.</p>
-            <p class="research-line"><strong>Research interests:</strong> Distributed AI systems, collective communication, high-performance networking, network measurement, wireless communication, and signal processing.</p>
+            <p>I am a master's student in <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">Telecommunication Engineering at Politecnico di Milano</a>. My research focuses on communication for distributed AI training, particularly when GPUs are located in different datacenters. I study how communication between these GPUs can adapt as network conditions change.</p>
+            <p>I received my B.Sc. in Electronic Information Engineering from the School of Information and Electronics at Beijing Institute of Technology in 2023. I was fortunate to work with Qin Zhang and his team on my undergraduate thesis, which explored cooperative transmission in wireless ad hoc networks. I used simulations to study how nodes synchronize their clocks and adjust their signals to form a directional beam.</p>
+            <p>In autumn 2025, I spent a semester at ENSEA in France on an Erasmus exchange, taking courses in computer networks, wireless communications, and network and software security.</p>
+            <p>I have also worked on carrier-grade gateway software, developing and testing C/IPsec functionality. My academic projects include recommender systems, video- and radar-based vital-sign sensing, and wireless communication. I enjoy the practical side of this work: implementing an idea, finding out where it breaks, and using measurements to understand why.</p>
+            <p>I am looking for internship and research opportunities in AI infrastructure, distributed systems, and high-performance networking. Outside my studies, I enjoy traveling and keep a <a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">map of the places I have visited</a>.</p>
           </div>
         </section>
 
         <section id="news" class="news">
           <h2>News</h2>
           <ul>
-            <li><time>Aug. 2026</time> — Submitted our paper on joint CCL re-optimization and WAN re-routing for cross-datacenter training to INET4AI 2026, an ACM CoNEXT workshop. Awaiting review decision.</li>
+            <li><time>Aug. 2026</time> — Submitted a manuscript on collective communication and WAN routing for cross-datacenter training to INET4AI 2026. A decision is pending.</li>
           </ul>
         </section>
 
@@ -117,7 +115,7 @@
           <h2>Research</h2>
           <div class="publication">
             <div class="publication-title">Master's Thesis: Collective Communication and WAN Adaptation</div>
-            <div>End-to-end coordination of WAN-aware NCCL/MSCCL All-Gather schedules with per-channel RoCEv2 RDMA path steering under dynamic multipath WAN conditions.</div>
+            <div>I use PyTorch FSDP, NCCL/MSCCL, and RoCEv2 RDMA to study communication across datacenters. My thesis investigates how All-Gather schedules and network paths can be adjusted together as available bandwidth changes, using network measurements to guide and evaluate those decisions.</div>
             <div class="meta">Distributed AI training · Collective communication · RDMA · Multipath WAN</div>
             <div class="links"><a href="https://github.com/ArnoChanPolimi/cross-dc-ai-training-testbed" target="_blank" rel="noopener noreferrer">project repository</a></div>
           </div>
@@ -127,18 +125,18 @@
           <h2>Manuscripts</h2>
           <div class="publication">
             <div class="publication-title">An Experimental Testbed for Joint CCL Re-optimization and WAN Re-routing in Cross-Datacenter Training</div>
-            <div class="meta">Submitted to INET4AI 2026 (2nd Workshop on Inter-networking Challenges for AI, ACM CoNEXT Workshop), August 2026. Awaiting review decision.</div>
+            <div class="meta">Submitted to INET4AI 2026, an ACM CoNEXT workshop, in August 2026. Awaiting a review decision.</div>
           </div>
         </section>
 
         <section id="projects">
           <h2>Selected Projects</h2>
-          <div class="project"><div class="project-title">Scalable Recommender System</div><div>Weighted hybrid ensemble combining EASE, SLIM, and iALS on a 3.8M-interaction dataset, with Bayesian optimization for Top-N ranking.</div><div class="meta">Python · GCP · Matrix modeling</div><div class="links"><a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025" target="_blank" rel="noopener noreferrer">code</a><a href="https://www.kaggle.com/competitions/recommender-systems-2025-challenge-polimi/leaderboard" target="_blank" rel="noopener noreferrer">Kaggle</a></div></div>
-          <div class="project"><div class="project-title">Biometric Sensing and Computer Vision</div><div>Remote photoplethysmography pipeline using Res10-SSD for region-of-interest detection and FFT-based heart-rate extraction from video traces.</div><div class="meta">PyTorch · Computer vision · Biometrics</div><div class="links"><a href="https://github.com/ArnoChanPolimi/LAB_Nearable2025" target="_blank" rel="noopener noreferrer">code</a></div></div>
-          <div class="project"><div class="project-title">Image Classification and Website Fingerprinting</div><div>MobileNetV3 for edge image inference and website fingerprinting through tshark/biflow feature extraction.</div><div class="meta">Transfer learning · Traffic analysis</div><div class="links"><a href="https://github.com/ArnoChanPolimi/CGI2026" target="_blank" rel="noopener noreferrer">code</a></div></div>
-          <div class="project"><div class="project-title">Statistical Inference and Learning</div><div>MLE, MAP, and GLRT detectors for signal estimation; SVMs with RBF kernels and Tikhonov regularization for robust modeling.</div><div class="meta">MATLAB · Statistical inference · Machine learning</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Signal-Processing-and-Learning" target="_blank" rel="noopener noreferrer">code</a></div></div>
-          <div class="project"><div class="project-title">Contactless Vital-Sign Detection with 60 GHz FMCW Radar</div><div>Breathing- and heart-rate estimation from TI IWR6843 radar data using range selection, phase unwrapping, and spectral analysis.</div><div class="meta">FMCW radar · Signal processing · MATLAB</div><div class="links"><a href="https://arnochanpolimi.github.io/mmWave-Radar-Vital-Sign-Detection/" target="_blank" rel="noopener noreferrer">project page</a></div></div>
-          <div class="project"><div class="project-title">LoS MIMO Capacity Optimization</div><div>Spectral-efficiency optimization using the Rayleigh criterion and SVD-based water-filling power allocation for 2×2 line-of-sight links.</div><div class="meta">MIMO · Information theory · Optimization · Nokia collaboration</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Scalable Recommender System</div><div>Combined EASE, SLIM, and iALS models for top-N recommendation on a dataset of 3.8 million interactions, with weights tuned through Bayesian optimization.</div><div class="meta">Python · GCP · Matrix modeling</div><div class="links"><a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025" target="_blank" rel="noopener noreferrer">code</a><a href="https://www.kaggle.com/competitions/recommender-systems-2025-challenge-polimi/leaderboard" target="_blank" rel="noopener noreferrer">Kaggle</a></div></div>
+          <div class="project"><div class="project-title">Biometric Sensing and Computer Vision</div><div>Estimated heart rate from video using Res10-SSD to locate facial regions and frequency analysis to extract the pulse signal.</div><div class="meta">PyTorch · Computer vision · Biometrics</div><div class="links"><a href="https://github.com/ArnoChanPolimi/LAB_Nearable2025" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Image Classification and Website Fingerprinting</div><div>Used MobileNetV3 for image classification on edge devices and extracted traffic features with tshark and biflows for website fingerprinting.</div><div class="meta">Transfer learning · Traffic analysis</div><div class="links"><a href="https://github.com/ArnoChanPolimi/CGI2026" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Statistical Inference and Learning</div><div>Implemented MLE, MAP, and GLRT methods for signal estimation and detection, alongside RBF-kernel SVMs and Tikhonov regularization.</div><div class="meta">MATLAB · Statistical inference · Machine learning</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Signal-Processing-and-Learning" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Contactless Vital-Sign Detection with 60 GHz FMCW Radar</div><div>Estimated breathing and heart rates from TI IWR6843 radar recordings through range selection, phase unwrapping, and spectral analysis.</div><div class="meta">FMCW radar · Signal processing · MATLAB</div><div class="links"><a href="https://arnochanpolimi.github.io/mmWave-Radar-Vital-Sign-Detection/" target="_blank" rel="noopener noreferrer">project page</a></div></div>
+          <div class="project"><div class="project-title">LoS MIMO Capacity Optimization</div><div>Studied antenna spacing and power allocation in 2×2 line-of-sight MIMO links using the Rayleigh criterion, singular value decomposition, and water-filling.</div><div class="meta">MIMO · Information theory · Optimization · Nokia collaboration</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank" rel="noopener noreferrer">code</a></div></div>
         </section>
 
         <section id="education">
@@ -146,13 +144,13 @@
           <ul class="education-list">
             <li><span class="institution-mark"><img src="images/POLIMI_LOGO.svg" alt=""></span><div><time>Current</time><strong>Politecnico di Milano</strong><div class="meta">Italy · M.Sc. in Telecommunication Engineering</div></div></li>
             <li><span class="institution-mark"><img src="images/Logo_ENSEA.svg.png" alt=""></span><div><time>Autumn 2025 · Erasmus</time><strong>ENSEA</strong><div class="meta">France · Networks, wireless communications, and security</div></div></li>
-            <li><span class="institution-mark"><img src="images/BIT_LOGO.svg" alt=""></span><div><time>Undergraduate</time><strong>Beijing Institute of Technology</strong><div class="meta">China · School of Information and Electronics</div><div class="meta">Electronic Information Engineering</div></div></li>
+            <li><span class="institution-mark"><img src="images/BIT_LOGO.svg" alt=""></span><div><time>June 2023</time><strong>Beijing Institute of Technology</strong><div class="meta">China · School of Information and Electronics</div><div class="meta">B.Sc. in Electronic Information Engineering</div></div></li>
           </ul>
         </section>
 
         <section id="travel">
           <h2>Travel</h2>
-          <p>I keep a personal map of places I have visited alongside my academic and engineering work.</p>
+          <p>I keep this map as a record of the places I have visited.</p>
           <p class="travel-link"><a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">Open my travel map</a> · <a href="https://clustrmaps.com/site/1c676" target="_blank" rel="noopener noreferrer">Visitor record</a></p>
         </section>
         <footer>Last updated September 2026 · Hong Chen</footer>
