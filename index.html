@@ -34,6 +34,7 @@
     .intro { width:100%; margin:0 0 1.65rem; }
     .intro p,.news li,#research .publication > div:nth-child(2),.project > div:nth-child(2) { text-align:justify; text-align-last:left; hyphens:manual; overflow-wrap:break-word; line-height:1.6; }
     .intro p { margin-bottom:1rem; }
+    .research-description p { text-align:justify; text-align-last:left; line-height:1.6; margin-bottom:.85rem; }
     .intro strong { font-weight:700; }
     .research-line { margin-top:1.05rem; }
     section { scroll-margin-top:20px; margin-top:2.1rem; }
@@ -94,15 +95,15 @@
 
     <div class="body-grid">
       <nav class="side-nav" aria-label="Page sections">
-        <a href="#about">About</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Manuscripts</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#travel">Travel</a>
+        <a href="#about">About</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#travel">Travel</a>
       </nav>
       <div class="content">
         <section id="about">
           <div class="intro">
-            <p><strong>CV:</strong> I am a master's student in Telecommunication Engineering at <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">Politecnico di Milano</a>. I am carrying out my thesis in the <a href="https://www.bonsai.deib.polimi.it/" target="_blank" rel="noopener noreferrer">BONSAI Lab</a>, within the Department of Electronics, Information and Bioengineering (DEIB), under the supervision of <a href="https://qiaolunzhang.github.io/" target="_blank" rel="noopener noreferrer">Qiaolun Zhang</a> and <a href="https://tornatore.faculty.polimi.it/" target="_blank" rel="noopener noreferrer">Massimo Tornatore</a>.</p>
-            <p>My thesis focuses on distributed AI training across datacenters. I study how collective communication schedules and network routing can adapt together when available bandwidth changes. I work with PyTorch FSDP, NCCL/MSCCL, and RoCEv2 RDMA to build a testbed and measure how these decisions affect communication and training performance. I am interested in research and engineering opportunities in AI infrastructure and high-performance networking.</p>
-            <p>In autumn 2025, I spent a semester at ENSEA in France on an Erasmus exchange, studying computer networks, wireless communications, and network and software security.</p>
-            <p>Before my master's studies, I worked on carrier-grade gateway software, developing and testing C/IPsec functionality. I received my B.Sc. in Electronic Information Engineering from Beijing Institute of Technology's School of Information and Electronics in 2023, where I studied cooperative transmission in wireless ad hoc networks for my undergraduate thesis under the supervision of Prof. Qin Zhang.</p>
+            <p><strong>CV:</strong> I am a master's student in Telecommunication Engineering at <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">Politecnico di Milano</a>. I am conducting my thesis research in the <a href="https://www.bonsai.deib.polimi.it/" target="_blank" rel="noopener noreferrer">BONSAI Lab</a>, within the Department of Electronics, Information and Bioengineering (DEIB), under the supervision of <a href="https://qiaolunzhang.github.io/" target="_blank" rel="noopener noreferrer">Qiaolun Zhang</a> and <a href="https://tornatore.faculty.polimi.it/" target="_blank" rel="noopener noreferrer">Massimo Tornatore</a>.</p>
+            <p>I work on communication and networking for distributed AI training. My thesis investigates how collective communication schedules and network paths can adapt together as network conditions change. I build experimental systems and runtime controls to study this interaction during GPU training.</p>
+            <p>From September 2025 to January 2026, I studied at ENSEA in France through the Erasmus programme, with coursework in computer networks, wireless communications, and network and software security.</p>
+            <p>Before my master's studies, I worked on carrier-grade gateway software, developing and testing packet-processing and IPsec modules in C. I received my B.Sc. in Electronic Information Engineering from Beijing Institute of Technology's School of Information and Electronics in 2023, where I studied cooperative transmission in wireless ad hoc networks for my undergraduate thesis under the supervision of Prof. Qin Zhang.</p>
             <p>Outside my studies, I enjoy traveling and keep a <a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">map of the places I have visited</a>.</p>
           </div>
         </section>
@@ -110,36 +111,39 @@
         <section id="news" class="news">
           <h2>News</h2>
           <ul>
-            <li><time>Aug. 2026</time> — Submitted a manuscript on collective communication and WAN routing for cross-datacenter training to INET4AI 2026. A decision is pending.</li>
+            <li><time datetime="2026-09-18">Sep. 18, 2026</time> — Our paper on a testbed for cross-datacenter training has been accepted at INET4AI 2026, co-located with ACM CoNEXT 2026. See <a href="#publications">Publications</a>.</li>
+            <li><time datetime="2026-08">Aug. 2026</time> — Submitted our manuscript on collective communication and WAN routing for cross-datacenter training to INET4AI 2026.</li>
           </ul>
         </section>
 
         <section id="research">
           <h2>Research</h2>
           <div class="publication">
-            <div class="publication-title">Master's Thesis: Collective Communication and WAN Adaptation</div>
-            <div>I use PyTorch FSDP, NCCL/MSCCL, and RoCEv2 RDMA to study communication across datacenters. My thesis investigates how All-Gather schedules and network paths can be adjusted together as available bandwidth changes, using network measurements to guide and evaluate those decisions.</div>
-            <div class="meta">Distributed AI training · Collective communication · RDMA · Multipath WAN</div>
-            <div class="links"><a href="https://github.com/ArnoChanPolimi/cross-dc-ai-training-testbed" target="_blank" rel="noopener noreferrer">project repository</a></div>
+            <div class="publication-title">Communication Systems for Distributed AI Training</div>
+            <div class="research-description">
+              <p>My master’s thesis studies how collective communication schedules and network paths can adapt together during cross-datacenter AI training. I built a testbed that runs real GPU training over a programmable multipath wide-area network, using PyTorch FSDP, NCCL/MSCCL, and RoCEv2 RDMA. Controlled network conditions make it possible to examine how changing bandwidth, delay, and background traffic affect communication.</p>
+              <p>My implementation connects control of the training software with control of the network. It makes collective communication channels identifiable to forwarding rules, supports network-aware schedule generation, and coordinates schedule activation across GPU workers. A runtime interlock defers path changes during schedule transitions so that the two controls do not interfere.</p>
+              <p>I use this platform to compare fixed configurations, path adaptation, schedule adaptation, and their combination. The accepted workshop paper focuses on All-Gather communication; the broader thesis also includes ongoing work on Reduce-Scatter. The evaluation distinguishes communication latency from total training time and the cost of reconfiguration.</p>
+            </div>
+            <div class="meta">Distributed systems · AI infrastructure · Communication networks</div>
           </div>
         </section>
 
         <section id="publications">
-          <h2>Manuscripts</h2>
+          <h2>Publications</h2>
           <div class="publication">
             <div class="publication-title">An Experimental Testbed for Joint CCL Re-optimization and WAN Re-routing in Cross-Datacenter Training</div>
-            <div class="meta">Submitted to INET4AI 2026, an ACM CoNEXT workshop, in August 2026. Awaiting a review decision.</div>
+            <div class="meta">Accepted on September 18, 2026, at INET4AI 2026 — 2nd Workshop on Inter-networking challenges for AI, co-located with ACM CoNEXT 2026.</div>
           </div>
         </section>
 
         <section id="projects">
           <h2>Selected Projects</h2>
-          <div class="project"><div class="project-title">Scalable Recommender System</div><div>Combined EASE, SLIM, and iALS models for top-N recommendation on a dataset of 3.8 million interactions, with weights tuned through Bayesian optimization.</div><div class="meta">Python · GCP · Matrix modeling</div><div class="links"><a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025" target="_blank" rel="noopener noreferrer">code</a><a href="https://www.kaggle.com/competitions/recommender-systems-2025-challenge-polimi/leaderboard" target="_blank" rel="noopener noreferrer">Kaggle</a></div></div>
-          <div class="project"><div class="project-title">Biometric Sensing and Computer Vision</div><div>Estimated heart rate from video using Res10-SSD to locate facial regions and frequency analysis to extract the pulse signal.</div><div class="meta">PyTorch · Computer vision · Biometrics</div><div class="links"><a href="https://github.com/ArnoChanPolimi/LAB_Nearable2025" target="_blank" rel="noopener noreferrer">code</a></div></div>
-          <div class="project"><div class="project-title">Image Classification and Website Fingerprinting</div><div>Used MobileNetV3 for image classification on edge devices and extracted traffic features with tshark and biflows for website fingerprinting.</div><div class="meta">Transfer learning · Traffic analysis</div><div class="links"><a href="https://github.com/ArnoChanPolimi/CGI2026" target="_blank" rel="noopener noreferrer">code</a></div></div>
-          <div class="project"><div class="project-title">Statistical Inference and Learning</div><div>Implemented MLE, MAP, and GLRT methods for signal estimation and detection, alongside RBF-kernel SVMs and Tikhonov regularization.</div><div class="meta">MATLAB · Statistical inference · Machine learning</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Signal-Processing-and-Learning" target="_blank" rel="noopener noreferrer">code</a></div></div>
-          <div class="project"><div class="project-title">Contactless Vital-Sign Detection with 60 GHz FMCW Radar</div><div>Estimated breathing and heart rates from TI IWR6843 radar recordings through range selection, phase unwrapping, and spectral analysis.</div><div class="meta">FMCW radar · Signal processing · MATLAB</div><div class="links"><a href="https://arnochanpolimi.github.io/mmWave-Radar-Vital-Sign-Detection/" target="_blank" rel="noopener noreferrer">project page</a></div></div>
-          <div class="project"><div class="project-title">LoS MIMO Capacity Optimization</div><div>Studied antenna spacing and power allocation in 2×2 line-of-sight MIMO links using the Rayleigh criterion, singular value decomposition, and water-filling.</div><div class="meta">MIMO · Information theory · Optimization · Nokia collaboration</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">O-RAN Network Control</div><div>Developed a control loop linking a base-station emulator with a network-control application to adapt wireless transmission settings using network measurements.</div><div class="meta">Network control · C · Python</div><div class="links"><a href="https://github.com/ArnoChanPolimi/mrn-oran-m2-project2" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Hybrid Recommender Systems</div><div>Built and evaluated hybrid recommenders within a course-provided framework, combining recommendation methods and tuning them through validation.</div><div class="meta">Machine learning · Recommendation · Python</div><div class="links"><a href="https://github.com/ArnoChanPolimi/RecSys_PoliMi_Challenge_2025" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Plant-Stress Classification</div><div>Adapted an image-classification model to identify plant stress, examining class imbalance, predictions on unseen species, and model interpretation.</div><div class="meta">Computer vision · Transfer learning · PyTorch</div><div class="links"><a href="https://github.com/ArnoChanPolimi/CGI2026" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">Statistical Signal Processing and Learning</div><div>Studied estimation, detection, and adaptive filtering through projects on time-series analysis and interference reduction.</div><div class="meta">Signal processing · Statistical learning · MATLAB</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Signal-Processing-and-Learning" target="_blank" rel="noopener noreferrer">code</a></div></div>
+          <div class="project"><div class="project-title">LoS MIMO Capacity Analysis</div><div>Studied how antenna geometry and power allocation affect the capacity of line-of-sight wireless links. Presented the course project at Nokia in Milan.</div><div class="meta">Wireless communications · Information theory · MATLAB</div><div class="links"><a href="https://github.com/ArnoChanPolimi/Information_Theory_Project_LoS_MIMO" target="_blank" rel="noopener noreferrer">code</a></div></div>
         </section>
 
         <section id="education">
@@ -156,7 +160,7 @@
           <p>I keep this map as a record of the places I have visited.</p>
           <p class="travel-link"><a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">Open my travel map</a> · <a href="https://clustrmaps.com/site/1c676" target="_blank" rel="noopener noreferrer">Visitor record</a></p>
         </section>
-        <footer><p><a href="mailto:hong1.chen@mail.polimi.it">Email</a> is the best way to reach me; I check it regularly.</p><p>Last updated September 2026 · Hong Chen</p></footer>
+        <footer><p><a href="mailto:hong1.chen@mail.polimi.it">Email</a> is the best way to reach me; I check it regularly.</p><p>Last updated October 2026 · Hong Chen</p></footer>
       </div>
     </div>
   </main>
