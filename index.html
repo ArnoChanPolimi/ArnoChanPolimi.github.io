@@ -55,8 +55,7 @@
     .institution-mark img { display:block; max-width:100%; max-height:54px; width:auto; height:auto; object-fit:contain; }
     .travel-link { padding:.75rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     footer { margin-top:3rem; color:var(--muted); font-size:.86rem; }
-    .next-step { margin-top:1rem; padding:.7rem .9rem; border-left:3px solid var(--accent); background:#fbf7f6; }
-    .next-step p { margin:0; }
+    .interests li { line-height:1.6; }
     .pub-authors { margin:.15rem 0 .1rem; }
     @media (max-width:760px) {
       .intro p,.news li,#research .publication > div:nth-child(2),.project > div:nth-child(2) { hyphens:auto; }
@@ -98,7 +97,7 @@
 
     <div class="body-grid">
       <nav class="side-nav" aria-label="Page sections">
-        <a href="#about">About</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#travel">Travel</a>
+        <a href="#about">About</a><a href="#interests">Interests</a><a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#travel">Travel</a>
       </nav>
       <div class="content">
         <section id="about">
@@ -109,6 +108,15 @@
             <p>Before my master's studies, I worked on carrier-grade gateway software, developing and testing packet-processing and IPsec modules in C. I received my B.Sc. in Electronic Information Engineering from Beijing Institute of Technology's School of Information and Electronics in 2023, where I studied cooperative transmission in wireless ad hoc networks for my undergraduate thesis under the supervision of Prof. Qin Zhang.</p>
             <p>Outside my studies, I enjoy traveling and keep a <a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">map of the places I have visited</a>.</p>
           </div>
+        </section>
+
+        <section id="interests" class="interests">
+          <h2>Research Interests</h2>
+          <ul>
+            <li><strong>Distributed AI systems</strong> — how communication libraries, network paths and runtime control interact during multi-GPU and cross-datacenter training.</li>
+            <li><strong>Experimental network evaluation</strong> — building testbeds with controlled bandwidth, delay and background traffic, and recording which configuration was active so that measurements can be interpreted.</li>
+            <li><strong>End-to-end energy modeling</strong> — measuring how much energy a distributed AI service uses across radio, transport and computing, and building models that stay accurate when resources are shared and load changes.</li>
+          </ul>
         </section>
 
         <section id="news" class="news">
@@ -128,8 +136,7 @@
               <p>My implementation connects control of the training software with control of the network. It makes collective communication channels identifiable to forwarding rules, supports network-aware schedule generation, and coordinates schedule activation across GPU workers. A runtime interlock defers path changes during schedule transitions so that the two controls do not interfere.</p>
               <p>I use this platform to compare fixed configurations, path adaptation, schedule adaptation, and their combination. The accepted workshop paper focuses on All-Gather communication; the broader thesis also includes ongoing work on Reduce-Scatter. The evaluation distinguishes communication latency from total training time and the cost of reconfiguration.</p>
             </div>
-            <div class="next-step"><p><strong>Next direction.</strong> Interpreting these measurements depends on knowing which schedule and network state were active at each moment. I want to apply the same discipline to energy: measuring how much energy a distributed AI service uses across radio, transport and computing, and building models that remain accurate when resources are shared and load changes.</p></div>
-            <div class="meta research-line">Distributed AI systems · Experimental network evaluation · Energy-aware AI infrastructure</div>
+            <div class="meta research-line">Distributed systems · AI infrastructure · Communication networks</div>
           </div>
         </section>
 
