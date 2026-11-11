@@ -63,6 +63,8 @@
     .orcid-inline { display:inline-block; margin-left:.22em; vertical-align:-.12em; line-height:0; }
     .orcid-inline svg { width:.95em; height:.95em; }
     .doi-note { color:var(--muted); }
+    .doi-note + .local-only::before { content:' · '; color:var(--muted); }
+    .interests li { margin-bottom:.4rem; }
     @media (max-width:760px) {
       .intro p,.news li,.research-description p,.project > div:nth-child(2) { text-align:left; hyphens:auto; }
       .page { width:min(100% - 32px,640px); padding-top:28px; }
@@ -109,20 +111,19 @@
         <section id="about">
           <div class="intro">
             <p><strong>CV:</strong> I am a master's student in Telecommunication Engineering at <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">Politecnico di Milano</a>, doing my thesis in the <a href="https://www.bonsai.deib.polimi.it/" target="_blank" rel="noopener noreferrer">BONSAI Lab</a> (DEIB) with <a href="https://qiaolunzhang.github.io/" target="_blank" rel="noopener noreferrer">Qiaolun Zhang</a> and <a href="https://tornatore.faculty.polimi.it/" target="_blank" rel="noopener noreferrer">Massimo Tornatore</a>.</p>
-            <p>My thesis is about AI training that spans several datacenters. When GPUs in different sites train one model, their collective communication has to cross a wide-area network whose free capacity keeps changing. I built a four-GPU testbed to see what happens when the collective schedule and the WAN paths are adapted together, and wrote the runtime code that stops the two from getting in each other's way.</p>
-            <p>From September 2025 to January 2026 I was an Erasmus+ exchange student at ENSEA in Cergy, France, taking courses in networks, wireless communications and security.</p>
-            <p>I did my B.Sc. in Electronic Information Engineering at Beijing Institute of Technology, where my undergraduate thesis, supervised by Prof. Qin Zhang, simulated synchronization and distributed beamforming in wireless ad hoc networks. After graduating, I worked in industry as a software engineer on carrier-grade network software, in C inside a large production codebase. The work covered packet processing and forwarding, network security protocols, debugging with packet traces and logs, and CI-based integration and testing. I then came back to study for my master's.</p>
-            <p>Outside my studies I like to travel, and I keep a <a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">map of the places I have been</a>.</p>
+            <p>My thesis is about AI training that spans several datacenters. When GPUs in different sites train one model, their collective communication has to cross a wide-area network whose free capacity keeps changing. I built a four-GPU testbed to see what happens when the collective schedule and the WAN paths are adapted together, and wrote the runtime code that stops the two from getting in each other's way. The first results are in a workshop paper at INET4AI 2026, where I am the first author.</p>
+            <p>I did my B.Sc. in Electronic Information Engineering at Beijing Institute of Technology, where my undergraduate thesis, supervised by Prof. Qin Zhang, simulated synchronization and distributed beamforming in wireless Ad hoc networks. After graduating, I worked in industry as a software engineer on carrier-grade network software, in C inside a large production codebase. The work covered packet processing and forwarding, network security protocols, debugging with packet traces and logs, and CI-based integration and testing. I then came back to study for my master's.</p>
+            <p><strong>I am looking for PhD positions starting in 2027.</strong></p>
           </div>
         </section>
 
         <section id="interests" class="interests">
           <h2>Research Interests</h2>
           <ul>
-            <li><strong>Networking for distributed AI:</strong> how collective communication libraries, network paths and runtime control interact in multi-GPU and cross-datacenter training.</li>
-            <li><strong>Wireless communications and signal processing:</strong> estimation and detection, adaptive filtering, multi-antenna systems, and radio access networks controlled from measurements, as in O-RAN.</li>
-            <li><strong>Experimental network evaluation:</strong> testbeds where bandwidth, delay and background traffic are under control, and where every result can be traced back to the configuration that produced it.</li>
-            <li><strong>End-to-end energy modeling:</strong> how much energy a distributed AI service uses across radio, transport and computing, and models that still hold when resources are shared and the load changes.</li>
+            <li><strong>Networking for distributed AI:</strong> collective communication, WAN path control, cross-datacenter training</li>
+            <li><strong>Wireless communications and signal processing:</strong> estimation and detection, adaptive filtering, multi-antenna systems, O&#8209;RAN control</li>
+            <li><strong>Experimental network evaluation:</strong> controlled testbeds, traffic replay, reproducible measurement</li>
+            <li><strong>End-to-end energy modeling:</strong> energy use of distributed AI services across radio, transport and computing</li>
           </ul>
         </section>
 
@@ -155,7 +156,7 @@
             <div class="publication-title">An Experimental Testbed for Joint CCL Re-optimization and WAN Re-routing in Cross-Datacenter Training</div>
             <div class="pub-authors"><strong>Hong Chen</strong><a class="orcid-inline" href="https://orcid.org/0009-0005-2135-3301" target="_blank" rel="noopener noreferrer" aria-label="Hong Chen's ORCID profile (opens in a new tab)" title="ORCID 0009-0005-2135-3301"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#a6ce39"/><circle cx="6.9" cy="6.7" r="1.05" fill="#fff"/><path fill="#fff" d="M6 9h1.8v10H6zM10 5.8h4.4c4.1 0 6.1 2.7 6.1 6.6s-2.3 6.6-6.2 6.6H10V5.8zm1.8 1.7v9.8h2.4c3 0 4.5-1.8 4.5-4.9 0-3-1.5-4.9-4.5-4.9h-2.4z"/></svg></a>, Hao Zhou, Michele Ferrero, et al.</div>
             <div class="meta">INET4AI 2026, 2nd Workshop on Inter-networking Challenges for AI, co-located with ACM CoNEXT 2026, Utrecht. First author.</div>
-            <div class="links"><a href="https://doi.org/10.1145/3843193.3857211" target="_blank" rel="noopener noreferrer">DOI: 10.1145/3843193.3857211</a> <span class="doi-note">(expected to be published after the conference)</span></div>
+            <div class="links"><a href="https://doi.org/10.1145/3843193.3857211" target="_blank" rel="noopener noreferrer">DOI: 10.1145/3843193.3857211</a> <span class="doi-note">(expected to be published after the conference)</span><a class="local-only" href="papers/INET4AI_2026_Camera_Ready.pdf" target="_blank" hidden>PDF</a></div>
           </div>
         </section>
 
@@ -180,11 +181,12 @@
         <section id="travel">
           <h2>Travel</h2>
           <p>I keep this map as a record of the places I have visited.</p>
-          <p class="travel-link"><a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">Open my travel map</a> · <a href="https://clustrmaps.com/site/1c676" target="_blank" rel="noopener noreferrer">Visitor record</a></p>
+          <p class="travel-link"><a href="https://arnochanpolimi.github.io/HongersTravelMapRecordings/" target="_blank" rel="noopener noreferrer">Open my travel map</a></p>
         </section>
         <footer><p>The easiest way to reach me is by <a href="mailto:hong1.chen@mail.polimi.it">email</a>.</p><p>Last updated November 2026 · Hong Chen</p></footer>
       </div>
     </div>
   </main>
+  <script>if (location.protocol === 'file:') document.querySelectorAll('.local-only').forEach(function (a) { a.hidden = false; });</script>
 </body>
 </html>
