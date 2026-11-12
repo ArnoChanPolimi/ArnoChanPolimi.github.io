@@ -3,67 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A short self-introduction of Hong Chen: from Beijing to Milan, in a few keywords and photos.">
+  <meta name="description" content="A short self-introduction of Hong Chen: what I work on now, how I got here, and where I want to go next.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23a3272f'/%3E%3Ctext x='16' y='21.5' font-family='Arial,Helvetica,sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'%3EHC%3C/text%3E%3C/svg%3E">
   <title>Hong Chen — Self-introduction</title>
   <script>document.documentElement.classList.add('js');</script>
   <style>
-    :root { --ink:#3e3939; --muted:#6f6868; --accent:#a3272f; --accent-soft:#f7ecec; --rule:#ddd6d3; --paper:#fff; --next:#c2610f; }
+    :root { --ink:#3e3939; --muted:#6f6868; --accent:#a3272f; --accent-soft:#f7ecec; --accent-deep:#7d1e24; --rule:#ddd6d3; --paper:#fff; --next:#c2610f; --next-soft:#fbf0e6; --next-deep:#8a4508; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.5 Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
     a { color:var(--accent); text-decoration:none; }
     a:hover,a:focus-visible { text-decoration:underline; }
     a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
-    .page { width:min(960px,calc(100% - 64px)); margin:0 auto; padding:36px 0 80px; }
+    .page { width:min(980px,calc(100% - 64px)); margin:0 auto; padding:36px 0 80px; }
     .back { font-size:.95rem; }
 
-    .hero { display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:48px; align-items:center; margin:44px 0 64px; }
+    /* Hero */
+    .hero { display:grid; grid-template-columns:minmax(0,1fr) 210px; gap:48px; align-items:center; margin:40px 0 28px; }
     .eyebrow { margin:0 0 .8rem; color:var(--accent); font-size:.85rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
     h1 { margin:0 0 1rem; color:#433d3d; font-size:clamp(2.4rem,6vw,3.6rem); line-height:1.04; letter-spacing:-.035em; }
-    .lead { margin:0; max-width:34rem; color:var(--muted); font-size:1.2rem; line-height:1.55; }
-    .portrait { width:220px; height:220px; border-radius:50%; overflow:hidden; border:4px solid #fff; box-shadow:0 0 0 2px var(--accent),0 12px 30px rgba(62,57,57,.14); }
-    .portrait img { display:block; width:100%; height:100%; object-fit:cover; }
+    .lead { margin:0; max-width:36rem; color:var(--muted); font-size:1.18rem; line-height:1.55; }
+    .lead strong { color:var(--ink); }
+    .portrait { position:relative; width:210px; height:210px; border-radius:50%; overflow:hidden; border:4px solid #fff; background:#2b2f38; box-shadow:0 0 0 2px var(--accent),0 12px 30px rgba(62,57,57,.14); }
+    .portrait img { position:absolute; display:block; width:235%; max-width:none; height:auto; left:-64%; top:-36%; }
+    .jump { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 56px; padding:0; list-style:none; }
+    .jump a { display:inline-block; padding:.45rem 1rem; border:1px solid var(--rule); border-radius:999px; color:var(--ink); font-size:.95rem; }
+    .jump a:hover { text-decoration:none; border-color:var(--accent); color:var(--accent); }
+    .jump b { color:var(--accent); margin-right:.35rem; }
 
-    .timeline { position:relative; list-style:none; margin:0; padding:0 0 0 56px; }
-    .timeline::before { content:''; position:absolute; left:15px; top:10px; bottom:120px; width:3px; border-radius:3px; background:linear-gradient(var(--accent),#c4797e); }
-    .timeline::after { content:''; position:absolute; left:15px; bottom:24px; height:96px; border-left:3px dashed var(--next); }
-    .stop { position:relative; margin:0 0 64px; }
-    .stop:last-child { margin-bottom:0; }
-    .stop::before { content:''; position:absolute; left:-49px; top:4px; width:19px; height:19px; border-radius:50%; background:#fff; border:4px solid var(--accent); }
-    .stop.now::before { background:var(--accent); box-shadow:0 0 0 6px var(--accent-soft); }
-    .stop.next::before { border:3px dashed var(--next); }
-    .when { margin:0 0 .25rem; color:var(--accent); font-size:1.05rem; font-weight:700; letter-spacing:.02em; }
-    .stop.next .when { color:var(--next); }
-    h2 { margin:0 0 .9rem; color:#433d3d; font-size:clamp(1.55rem,3.4vw,2.1rem); line-height:1.15; letter-spacing:-.02em; }
-    h2 .where { display:block; margin-top:.3rem; color:var(--muted); font-size:1rem; font-weight:400; letter-spacing:0; }
-    .tags { display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0 0 1.2rem; padding:0; }
-    .tags li { padding:.38rem .85rem; border-radius:999px; background:var(--accent-soft); color:#7d1e24; font-size:.95rem; line-height:1.25; }
-    .stop.next .tags li { background:#fbf0e6; color:#8a4508; }
+    /* Chapters */
+    .chapter { margin:0 0 72px; scroll-margin-top:20px; }
+    .chapter-head { display:flex; align-items:baseline; gap:16px; margin:0 0 24px; }
+    .chapter-num { color:var(--accent); font-size:1rem; font-weight:700; letter-spacing:.08em; }
+    .chapter-title { margin:0; color:#433d3d; font-size:clamp(2rem,5vw,2.8rem); line-height:1.05; letter-spacing:-.03em; }
+    .chapter-intro { margin:0 0 28px; max-width:42rem; color:var(--muted); font-size:1.1rem; line-height:1.55; }
+    .chapter.next .chapter-num { color:var(--next); }
+
+    /* Stop card (shared by Now and Before) */
+    .when { margin:0 0 .25rem; color:var(--accent); font-size:1.02rem; font-weight:700; letter-spacing:.02em; }
+    h3 { margin:0; color:#433d3d; font-size:clamp(1.4rem,3vw,1.85rem); line-height:1.18; letter-spacing:-.015em; }
+    .sub { margin:.3rem 0 0; color:var(--muted); font-size:.98rem; }
+    .sub + .tags { margin-top:.9rem; }
+    .why { margin:.75rem 0 1rem; font-size:1.06rem; line-height:1.5; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0 0 1.15rem; padding:0; }
+    .tags li { padding:.36rem .82rem; border-radius:999px; background:var(--accent-soft); color:var(--accent-deep); font-size:.93rem; line-height:1.25; }
+    .highlight { display:inline-flex; align-items:center; gap:.55rem; margin:0 0 1.15rem; padding:.55rem 1rem; border-radius:10px; background:var(--accent); color:#fff; font-size:.98rem; font-weight:700; }
+    .highlight svg { width:18px; height:18px; flex:none; }
+    .highlights { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 1.15rem; }
+    .highlights .highlight { margin:0; }
+    .paper-badge { display:flex; align-items:center; gap:10px; min-width:0; }
+    .paper-badge .highlight { margin:0; min-width:0; }
+    .popper { display:inline-flex; flex:none; align-self:center; width:30px; height:30px; transform-origin:20% 85%; }
+    .popper svg { width:100%; height:100%; }
+    .js .in .popper { animation:cheer 1.1s ease .5s 2; }
+    .popper.sm { width:20px; height:20px; }
+    .tags li.award { display:inline-flex; align-items:center; gap:6px; padding-right:.6rem; font-weight:700; }
+    @keyframes cheer { 0%,100% { transform:rotate(0); } 25% { transform:rotate(-14deg) scale(1.12); } 55% { transform:rotate(8deg); } }
+    .highlight.alt { background:#fff; color:var(--accent); box-shadow:inset 0 0 0 2px var(--accent); }
     .photos { display:flex; gap:14px; overflow-x:auto; padding:2px 2px 8px; scrollbar-width:thin; }
-    figure { flex:none; margin:0; }
+    figure { flex:none; width:min-content; margin:0; }
     figure a { display:block; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(62,57,57,.12); }
-    figure img { display:block; height:250px; width:auto; transition:transform .35s ease; }
+    figure img { display:block; height:240px; width:auto; transition:transform .35s ease; }
     figure a:hover img { transform:scale(1.04); }
     figcaption { margin-top:.45rem; color:var(--muted); font-size:.85rem; }
-    .more { margin:.6rem 0 0; font-size:.95rem; }
 
-    .closing { margin-top:72px; padding-top:22px; border-top:1px solid var(--rule); color:var(--muted); }
+    /* Now */
+    .now-card { padding:28px; border:1px solid var(--rule); border-left:5px solid var(--accent); border-radius:14px; }
+    .now-card .photos figure img { height:280px; }
+    .more { margin:.4rem 0 0; font-size:.95rem; }
+
+    /* Before: timeline */
+    .timeline { position:relative; list-style:none; margin:0; padding:0 0 0 54px; }
+    .timeline::before { content:''; position:absolute; left:14px; top:10px; bottom:10px; width:3px; border-radius:3px; background:linear-gradient(var(--accent),#c4797e); }
+    .stop { position:relative; margin:0 0 52px; }
+    .stop:last-child { margin-bottom:0; }
+    .stop::before { content:''; position:absolute; left:-48px; top:4px; width:19px; height:19px; border-radius:50%; background:#fff; border:4px solid var(--accent); }
+
+    /* Next */
+    .thinker { display:grid; grid-template-columns:260px minmax(0,1fr); gap:0; align-items:end; margin:0 0 40px; }
+    .person { display:block; width:260px; height:auto; }
+    .thoughts { display:flex; flex-wrap:wrap; align-items:flex-start; gap:10px 14px; margin:0; padding:0 0 230px; list-style:none; }
+    .cloud { padding:30px 38px 34px; color:#4a3426; font-size:1.02rem; font-weight:700; line-height:1.3; text-align:center; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 110' preserveAspectRatio='none'%3E%3Cpath d='M44 98C18 98 6 80 16 64 2 52 12 28 36 32 40 12 66 4 84 16 96 2 124 2 134 18c18-10 44-2 44 20 18 6 20 32 4 42 4 16-16 24-32 18-10 10-34 10-44 2-12 8-36 8-46-2-6 2-12 2-16 0z' fill='%23ffffff' stroke='%23e3cfc5' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat; filter:drop-shadow(0 6px 10px rgba(62,57,57,.10)); }
+    .cloud.tint { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 110' preserveAspectRatio='none'%3E%3Cpath d='M44 98C18 98 6 80 16 64 2 52 12 28 36 32 40 12 66 4 84 16 96 2 124 2 134 18c18-10 44-2 44 20 18 6 20 32 4 42 4 16-16 24-32 18-10 10-34 10-44 2-12 8-36 8-46-2-6 2-12 2-16 0z' fill='%23fbf0e6' stroke='%23efd6bf' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E"); }
+    .cloud:nth-child(2) { margin-top:22px; }
+    .cloud:nth-child(4) { margin-top:-6px; }
+    .cloud:nth-child(5) { margin-top:16px; }
+    .js .next .cloud { opacity:0; transform:scale(.6); }
+    .js .next.in .cloud { animation:pop .5s cubic-bezier(.2,.9,.3,1.3) forwards, drift 6s ease-in-out .6s infinite; }
+    .js .next.in .cloud:nth-child(2) { animation-delay:.15s,.75s; }
+    .js .next.in .cloud:nth-child(3) { animation-delay:.3s,.9s; }
+    .js .next.in .cloud:nth-child(4) { animation-delay:.45s,1.05s; }
+    .js .next.in .cloud:nth-child(5) { animation-delay:.6s,1.2s; }
+    .js .next.in .cloud:nth-child(6) { animation-delay:.75s,1.35s; }
+    @keyframes pop { to { opacity:1; transform:scale(1); } }
+    @keyframes drift { 0%,100% { opacity:1; transform:translateY(0); } 50% { opacity:1; transform:translateY(-5px); } }
+    .clusters-title { margin:0 0 14px; color:#433d3d; font-size:1.15rem; font-weight:700; }
+    .clusters { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+    .cluster { padding:20px 20px 14px; border:1px solid var(--rule); border-radius:14px; }
+    .cluster h4 { display:flex; align-items:center; gap:.55rem; margin:0 0 .8rem; color:#433d3d; font-size:1.08rem; }
+    .cluster h4 svg { width:22px; height:22px; flex:none; color:var(--next); }
+    .cluster .tags { margin-bottom:.4rem; }
+    .cluster .tags li { background:var(--next-soft); color:var(--next-deep); }
+
+    .closing { margin-top:64px; padding-top:22px; border-top:1px solid var(--rule); color:var(--muted); }
 
     .js .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
     .js .reveal.in { opacity:1; transform:none; }
-    @media (prefers-reduced-motion:reduce) { .js .reveal { opacity:1; transform:none; transition:none; } figure img { transition:none; } }
+    @media (prefers-reduced-motion:reduce) { .js .reveal { opacity:1; transform:none; transition:none; } figure img { transition:none; } html { scroll-behavior:auto; } .js .next .cloud,.js .next.in .cloud { opacity:1; transform:none; animation:none; } .js .in .popper { animation:none; } }
 
     @media (max-width:760px) {
       .page { width:calc(100% - 32px); padding-top:24px; }
-      .hero { grid-template-columns:1fr; gap:24px; margin:28px 0 44px; }
-      .portrait { grid-row:1; width:132px; height:132px; }
-      .lead { font-size:1.08rem; }
+      .hero { grid-template-columns:1fr; gap:22px; margin:26px 0 22px; }
+      .portrait { grid-row:1; width:128px; height:128px; }
+      .lead { font-size:1.06rem; }
+      .jump { margin-bottom:44px; }
+      .chapter { margin-bottom:56px; }
+      .now-card { padding:20px; }
+      .now-card .photos figure img,figure img { height:190px; }
       .timeline { padding-left:40px; }
-      .timeline::before,.timeline::after { left:9px; }
-      .stop { margin-bottom:48px; }
+      .timeline::before { left:8px; }
       .stop::before { left:-39px; width:17px; height:17px; }
-      figure img { height:190px; }
+      .portrait { width:128px; height:128px; }
+      .thinker { grid-template-columns:1fr; gap:0; }
+      .person { width:180px; margin:0 auto; }
+      .thoughts { order:-1; justify-content:center; gap:8px; padding:0 0 4px; }
+      .cloud { flex:1 1 40%; padding:20px 20px 24px; font-size:.88rem; }
+      .cloud:nth-child(n) { margin-top:0; }
     }
   </style>
 </head>
@@ -75,97 +140,188 @@
       <div>
         <p class="eyebrow">Self-introduction</p>
         <h1>Hi, I’m Hong.</h1>
-        <p class="lead">From Beijing to Milan, one step at a time. Here is how I got here, in a few keywords and photos.</p>
+        <p class="lead">M.Sc. student in Telecommunication Engineering at <strong>Politecnico di Milano</strong>, graduating in December 2026. I work on the <strong>infrastructure behind AI</strong>: the networks and communication that distributed training runs on.</p>
       </div>
-      <div class="portrait"><img src="images/story/hong-2026-face.jpg" width="480" height="480" alt="Hong Chen, 2026" width="480" height="480"></div>
+      <div class="portrait"><img src="images/2024_hong_Beijing_S01.jpg" alt="Hong Chen" width="939" height="1253"></div>
     </header>
 
-    <ol class="timeline">
-      <li class="stop reveal">
-        <p class="when">2019 – 2023</p>
-        <h2>Beijing Institute of Technology<span class="where">Beijing, China</span></h2>
-        <ul class="tags">
-          <li>B.Sc. Electronic Information Eng.</li>
-          <li>Courses across many tracks</li>
-          <li>Distributed beamforming thesis</li>
-          <li>Research assistant · wireless</li>
-        </ul>
-        <div class="photos">
-          <figure><a href="images/story/bit-me-2019.jpg"><img src="images/story/bit-me-2019.jpg" width="750" height="1000" alt="Hong at BIT, 2019" loading="lazy"></a><figcaption>Me, 2019</figcaption></figure>
-          <figure><a href="images/story/bit-campus.jpg"><img src="images/story/bit-campus.jpg" width="1000" height="666" alt="BIT campus by the lake" loading="lazy"></a><figcaption>Campus by the lake</figcaption></figure>
-          <figure><a href="images/story/bit-board.jpg"><img src="images/story/bit-board.jpg" width="727" height="1000" alt="A circuit board running a reaction game" loading="lazy"></a><figcaption>Hands-on hardware</figcaption></figure>
-        </div>
-      </li>
+    <ul class="jump" aria-label="Chapters">
+      <li><a href="#now"><b>01</b>Now</a></li>
+      <li><a href="#before"><b>02</b>Before</a></li>
+      <li><a href="#next"><b>03</b>Next</a></li>
+    </ul>
 
-      <li class="stop reveal">
-        <p class="when">2024</p>
-        <h2>Huawei Beijing Research Center<span class="where">Software engineer · Gateway Forwarding</span></h2>
+    <!-- 01 NOW -->
+    <section class="chapter now reveal" id="now">
+      <div class="chapter-head"><span class="chapter-num">01</span><h2 class="chapter-title">Now</h2></div>
+      <div class="now-card">
+        <p class="when">M.Sc. thesis · Since March 2026</p>
+        <h3>Communication optimization for cross-datacenter AI training</h3>
+        <p class="sub">BONSAI Lab, DEIB · with Prof. Massimo Tornatore and Prof. Qiaolun Zhang</p>
+        <p class="why">Fast WAN re-routing + slow collective-schedule re-optimization, coordinated on a real GPU testbed.</p>
         <ul class="tags">
-          <li>C · packet forwarding</li>
-          <li>IPsec</li>
-          <li>A very large codebase</li>
-          <li>Logs &amp; packet traces</li>
+          <li>Cross-datacenter training</li>
+          <li>Collective communication · NCCL / MSCCL</li>
+          <li>CCL schedule re-optimization</li>
+          <li>WAN re-routing</li>
+          <li>Programmable multipath WAN</li>
+          <li>RoCEv2 channel steering</li>
+          <li>Activation interlock</li>
+          <li>PyTorch FSDP · 4 GPUs</li>
         </ul>
-        <div class="photos">
-          <figure><a href="images/hong-chen-2024.jpg"><img src="images/hong-chen-2024.jpg" width="1280" height="1708" alt="Hong in Beijing, 2024" loading="lazy"></a><figcaption>Me, 2024</figcaption></figure>
-          <figure><a href="images/story/huawei-street.jpg"><img src="images/story/huawei-street.jpg" width="750" height="1000" alt="Huawei Beijing Research Center at dusk" loading="lazy"></a><figcaption>Where I worked</figcaption></figure>
-        </div>
-      </li>
-
-      <li class="stop reveal">
-        <p class="when">2024 – 2026</p>
-        <h2>Politecnico di Milano<span class="where">Milan, Italy</span></h2>
-        <ul class="tags">
-          <li>M.Sc. Telecommunication Eng.</li>
-          <li>Signal processing</li>
-          <li>Wireless networks</li>
-          <li>AI</li>
-        </ul>
-        <div class="photos">
-          <figure><a href="images/story/polimi-building.jpg"><img src="images/story/polimi-building.jpg" width="750" height="1000" alt="The main building of Politecnico di Milano" loading="lazy"></a><figcaption>Politecnico di Milano</figcaption></figure>
-          <figure><a href="images/story/milan-duomo.jpg"><img src="images/story/milan-duomo.jpg" width="750" height="1000" alt="Milan Cathedral in the sun" loading="lazy"></a><figcaption>Milan</figcaption></figure>
-        </div>
-      </li>
-
-      <li class="stop reveal">
-        <p class="when">2025 – 2026</p>
-        <h2>ENSEA<span class="where">Erasmus+ exchange · Cergy, France</span></h2>
-        <ul class="tags">
-          <li>Networks, telecom &amp; security</li>
-          <li>New classmates</li>
-          <li>Another way of studying</li>
-        </ul>
-        <div class="photos">
-          <figure><a href="images/story/ensea-snow.jpg"><img src="images/story/ensea-snow.jpg" width="1000" height="750" alt="ENSEA on a snowy day" loading="lazy"></a><figcaption>Snow day at ENSEA</figcaption></figure>
-          <figure><a href="images/story/whiteboard.jpg"><img src="images/story/whiteboard.jpg" width="750" height="1000" alt="Hong working through equations on a whiteboard" loading="lazy"></a><figcaption>At the whiteboard</figcaption></figure>
-          <figure><a href="images/story/paris-eiffel.jpg"><img src="images/story/paris-eiffel.jpg" width="750" height="1000" alt="Paris street with the Eiffel Tower at night" loading="lazy"></a><figcaption>Paris in December</figcaption></figure>
-        </div>
-      </li>
-
-      <li class="stop now reveal">
-        <p class="when">2026 · Now</p>
-        <h2>M.Sc. thesis, BONSAI Lab<span class="where">DEIB, Politecnico di Milano</span></h2>
-        <ul class="tags">
-          <li>Four-GPU testbed</li>
-          <li>Network &amp; communication, adapting together</li>
-          <li>First-author paper · INET4AI 2026</li>
-        </ul>
-        <div class="photos">
-          <figure><a href="images/story/gpu-testbed.jpg"><img src="images/story/gpu-testbed.jpg" width="750" height="1000" alt="The GPU server and monitor of the thesis testbed" loading="lazy"></a><figcaption>My testbed</figcaption></figure>
+        <div class="highlights">
+          <div class="paper-badge"><p class="highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.5L12 17.2 6.1 20.4l1.3-6.5L2.5 9.3l6.6-.8z" fill="currentColor"/></svg>First-author paper · INET4AI 2026 at ACM CoNEXT</p><span class="popper" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3.5 29 11 11.5 20.5 21z" fill="#e8a33d"/><path d="M6.6 21.6 13 25.4M8.9 16.2l7.6 6.6" stroke="#a3272f" stroke-width="2" stroke-linecap="round"/><path d="M19 12.5c3-1.6 1.8-4.4 3-6.2s3.6-1.6 4.4-3" fill="none" stroke="#2f7fd8" stroke-width="1.8" stroke-linecap="round"/><path d="M21.5 16.5c2.2-.4 3.6.6 5.2-.6s2.6-.2 3.4.4" fill="none" stroke="#a3272f" stroke-width="1.8" stroke-linecap="round"/><circle cx="15.5" cy="5" r="1.8" fill="#a3272f"/><circle cx="28" cy="23" r="1.7" fill="#2f7fd8"/><rect x="23" y="9.5" width="3.2" height="3.2" rx=".6" transform="rotate(25 24.6 11.1)" fill="#e8a33d"/><rect x="10.5" y="2.5" width="2.8" height="2.8" rx=".5" transform="rotate(-20 11.9 3.9)" fill="#2f7fd8"/><circle cx="29" cy="11" r="1.2" fill="#e8a33d"/></svg></span></div>
+          <p class="highlight alt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l6 6 4-4 6 6M20 9v5h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>−34.7% All-Gather latency vs. baseline</p>
         </div>
         <p class="more"><a href="index.html#research">More about the research →</a></p>
-      </li>
+      </div>
+    </section>
 
-      <li class="stop next reveal">
-        <p class="when">Next</p>
-        <h2>PhD research<span class="where">Starting in 2027</span></h2>
-        <ul class="tags">
-          <li>From performance to energy</li>
-          <li>Measure, then model</li>
-          <li>Radio · transport · computing</li>
+    <!-- 02 BEFORE -->
+    <section class="chapter reveal" id="before">
+      <div class="chapter-head"><span class="chapter-num">02</span><h2 class="chapter-title">Before</h2></div>
+      <ol class="timeline">
+        <li class="stop">
+          <p class="when">2019 – 2023</p>
+          <h3>Beijing Institute of Technology (BIT)</h3>
+          <p class="sub">B.Sc. in Electronic Information Engineering · Beijing, China</p>
+          <ul class="tags">
+            <li>Communications</li>
+            <li>Signal processing</li>
+            <li>Electromagnetics</li>
+            <li>Embedded systems · Arduino</li>
+            <li>Thesis: distributed beamforming in ad hoc networks</li>
+            <li>Research assistant · wireless</li>
+          </ul>
+          <div class="photos">
+            <figure><a href="images/story/bit-me-2019.jpg"><img src="images/story/bit-me-2019.jpg" width="750" height="1000" alt="Hong at BIT, 2019" loading="lazy"></a><figcaption>Me, 2019</figcaption></figure>
+            <figure><a href="images/story/bit-arduino-car.jpg"><img src="images/story/bit-arduino-car.jpg" width="1000" height="750" alt="The Arduino car built for a competition" loading="lazy"></a><figcaption>Arduino car, my first competition</figcaption></figure>
+            <figure><a href="images/story/bit-campus.jpg"><img src="images/story/bit-campus.jpg" width="1000" height="666" alt="BIT campus by the lake" loading="lazy"></a><figcaption>BIT campus</figcaption></figure>
+          </div>
+        </li>
+
+        <li class="stop">
+          <p class="when">2024</p>
+          <h3>Huawei Beijing Research Center</h3>
+          <p class="sub">Software engineer · Gateway Forwarding · Beijing, China</p>
+          <ul class="tags">
+            <li>Carrier-grade gateway software</li>
+            <li>Packet processing &amp; forwarding</li>
+            <li>IPsec · IKEv2</li>
+            <li>C</li>
+            <li>Large production codebase</li>
+            <li>Debugging with logs &amp; Wireshark</li>
+            <li>CI · Docker · Kubernetes</li>
+          </ul>
+          <div class="photos">
+            <figure><a href="images/hong-chen-2024.jpg"><img src="images/hong-chen-2024.jpg" width="1280" height="1708" alt="Hong in Beijing, 2024" loading="lazy"></a><figcaption>Me, 2024</figcaption></figure>
+            <figure><a href="images/story/huawei-street.jpg"><img src="images/story/huawei-street.jpg" width="750" height="1000" alt="Huawei Beijing Research Center at dusk" loading="lazy"></a><figcaption>Huawei Beijing Research Center</figcaption></figure>
+          </div>
+        </li>
+
+        <li class="stop">
+          <p class="when">2024 – 2026</p>
+          <h3>Politecnico di Milano (PoliMi)</h3>
+          <p class="sub">M.Sc. in Telecommunication Engineering · Milan, Italy</p>
+          <ul class="tags">
+            <li>Statistical signal processing</li>
+            <li>Wireless communications</li>
+            <li>MIMO · information theory</li>
+            <li>O-RAN closed-loop control</li>
+            <li>Deep learning</li>
+            <li>Networking</li>
+            <li class="award">Full tuition-fee waiver<span class="popper sm" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3.5 29 11 11.5 20.5 21z" fill="#e8a33d"/><path d="M6.6 21.6 13 25.4M8.9 16.2l7.6 6.6" stroke="#a3272f" stroke-width="2" stroke-linecap="round"/><path d="M19 12.5c3-1.6 1.8-4.4 3-6.2s3.6-1.6 4.4-3" fill="none" stroke="#2f7fd8" stroke-width="1.8" stroke-linecap="round"/><path d="M21.5 16.5c2.2-.4 3.6.6 5.2-.6s2.6-.2 3.4.4" fill="none" stroke="#a3272f" stroke-width="1.8" stroke-linecap="round"/><circle cx="15.5" cy="5" r="1.8" fill="#a3272f"/><circle cx="28" cy="23" r="1.7" fill="#2f7fd8"/><rect x="23" y="9.5" width="3.2" height="3.2" rx=".6" transform="rotate(25 24.6 11.1)" fill="#e8a33d"/><rect x="10.5" y="2.5" width="2.8" height="2.8" rx=".5" transform="rotate(-20 11.9 3.9)" fill="#2f7fd8"/><circle cx="29" cy="11" r="1.2" fill="#e8a33d"/></svg></span></li>
+          </ul>
+          <div class="photos">
+            <figure><a href="images/story/polimi-building.jpg"><img src="images/story/polimi-building.jpg" width="750" height="1000" alt="The main building of Politecnico di Milano" loading="lazy"></a><figcaption>Politecnico di Milano</figcaption></figure>
+            <figure><a href="images/story/polimi-nokia.jpg"><img src="images/story/polimi-nokia.jpg" width="750" height="1000" alt="Nokia campus in Milan" loading="lazy"></a><figcaption>Presenting a course project at Nokia, Milan</figcaption></figure>
+            <figure><a href="images/story/milan-duomo.jpg"><img src="images/story/milan-duomo.jpg" width="750" height="1000" alt="Milan Cathedral in the sun" loading="lazy"></a><figcaption>Milan</figcaption></figure>
+          </div>
+        </li>
+
+        <li class="stop">
+          <p class="when">Sep. 2025 – Jan. 2026</p>
+          <h3>École Nationale Supérieure de l’Électronique et de ses Applications (ENSEA)</h3>
+          <p class="sub">Erasmus+ exchange · Cergy, France</p>
+          <ul class="tags">
+            <li>Networks</li>
+            <li>Telecommunications</li>
+            <li>Security</li>
+            <li class="award">Erasmus+ mobility scholarship<span class="popper sm" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3.5 29 11 11.5 20.5 21z" fill="#e8a33d"/><path d="M6.6 21.6 13 25.4M8.9 16.2l7.6 6.6" stroke="#a3272f" stroke-width="2" stroke-linecap="round"/><path d="M19 12.5c3-1.6 1.8-4.4 3-6.2s3.6-1.6 4.4-3" fill="none" stroke="#2f7fd8" stroke-width="1.8" stroke-linecap="round"/><path d="M21.5 16.5c2.2-.4 3.6.6 5.2-.6s2.6-.2 3.4.4" fill="none" stroke="#a3272f" stroke-width="1.8" stroke-linecap="round"/><circle cx="15.5" cy="5" r="1.8" fill="#a3272f"/><circle cx="28" cy="23" r="1.7" fill="#2f7fd8"/><rect x="23" y="9.5" width="3.2" height="3.2" rx=".6" transform="rotate(25 24.6 11.1)" fill="#e8a33d"/><rect x="10.5" y="2.5" width="2.8" height="2.8" rx=".5" transform="rotate(-20 11.9 3.9)" fill="#2f7fd8"/><circle cx="29" cy="11" r="1.2" fill="#e8a33d"/></svg></span></li>
+          </ul>
+          <div class="photos">
+            <figure><a href="images/story/ensea-snow.jpg"><img src="images/story/ensea-snow.jpg" width="1000" height="750" alt="ENSEA on a snowy day" loading="lazy"></a><figcaption>ENSEA in the snow</figcaption></figure>
+            <figure><a href="images/story/whiteboard.jpg"><img src="images/story/whiteboard.jpg" width="750" height="1000" alt="Hong presenting at the whiteboard" loading="lazy"></a><figcaption>Presenting at ENSEA</figcaption></figure>
+            <figure><a href="images/story/paris-eiffel.jpg"><img src="images/story/paris-eiffel.jpg" width="750" height="1000" alt="Paris street with the Eiffel Tower at night" loading="lazy"></a><figcaption>Paris</figcaption></figure>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 03 NEXT -->
+    <section class="chapter next reveal" id="next">
+      <div class="chapter-head"><span class="chapter-num">03</span><h2 class="chapter-title">Next</h2></div>
+      <p class="chapter-intro">Looking for a PhD position starting in 2027.</p>
+      <div class="thinker">
+        <svg class="person" viewBox="0 0 240 280" role="img" aria-label="Illustration of me thinking about why I want to do a PhD">
+          <circle cx="174" cy="80" r="6" fill="#fff" stroke="#e3cfc5" stroke-width="2"/>
+          <circle cx="195" cy="56" r="9" fill="#fff" stroke="#e3cfc5" stroke-width="2"/>
+          <circle cx="221" cy="28" r="12" fill="#fff" stroke="#e3cfc5" stroke-width="2"/>
+          <path d="M48 280C48 214 80 190 120 190s72 24 72 90z" fill="#a3272f"/>
+          <path d="M106 191 120 210 134 191z" fill="#e9b994"/>
+          <rect x="108" y="158" width="24" height="36" rx="9" fill="#e9b994"/>
+          <circle cx="77" cy="127" r="9" fill="#e9b994"/>
+          <circle cx="163" cy="127" r="9" fill="#e9b994"/>
+          <ellipse cx="120" cy="122" rx="44" ry="48" fill="#f2c9a5"/>
+          <path d="M74 120C70 80 96 62 122 64c28 0 48 18 44 52-6-16-18-24-30-22-12-10-32-10-44 2-8 4-14 12-18 24z" fill="#2b2626"/>
+          <path d="M92 107q10-6 20-2M128 105q12-5 22 1" fill="none" stroke="#2b2626" stroke-width="3" stroke-linecap="round"/>
+          <rect x="89" y="113" width="27" height="20" rx="7" fill="none" stroke="#2b2626" stroke-width="3"/>
+          <rect x="125" y="113" width="27" height="20" rx="7" fill="none" stroke="#2b2626" stroke-width="3"/>
+          <path d="M116 121h9" stroke="#2b2626" stroke-width="3"/>
+          <circle cx="107" cy="120" r="3.2" fill="#2b2626"/>
+          <circle cx="143" cy="120" r="3.2" fill="#2b2626"/>
+          <path d="M111 151q8-3 17 1" fill="none" stroke="#b06a55" stroke-width="3" stroke-linecap="round"/>
+          <path d="M170 262c-6-30-18-56-36-82" fill="none" stroke="#c03641" stroke-width="26" stroke-linecap="round"/>
+          <circle cx="128" cy="172" r="13" fill="#f2c9a5"/>
+          <path d="M120 166q6-4 12 0" fill="none" stroke="#d9a07c" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <ul class="thoughts" aria-label="Why I want to do a PhD">
+          <li class="cloud">Exploring frontier technology</li>
+          <li class="cloud tint">A strong research environment</li>
+          <li class="cloud">Fields I truly care about</li>
+          <li class="cloud tint">Sustainable development</li>
+          <li class="cloud">Understanding the “why”</li>
+          <li class="cloud tint">Connecting wireless, networking &amp; AI</li>
         </ul>
-      </li>
-    </ol>
+      </div>
+      <p class="clusters-title">Where I want to go deeper</p>
+      <div class="clusters">
+        <div class="cluster">
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13v8M8.5 9.5a5 5 0 0 1 7 0M5.6 6.6a9 9 0 0 1 12.8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12.5" r="1.6" fill="currentColor"/></svg>Communications</h4>
+          <ul class="tags"><li>Wireless communications</li><li>Radio access · O-RAN</li><li>MIMO</li></ul>
+        </div>
+        <div class="cluster">
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3l2.5-6 4 13 3.5-10 2 3h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Signal processing</h4>
+          <ul class="tags"><li>Estimation &amp; detection</li><li>Adaptive filtering</li><li>Statistical learning</li></ul>
+        </div>
+        <div class="cluster">
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>AI systems</h4>
+          <ul class="tags"><li>Distributed training</li><li>AI infrastructure</li><li>Deep learning</li></ul>
+        </div>
+        <div class="cluster">
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.3 11 16.7 6.2M7.3 13l9.4 4.8" stroke="currentColor" stroke-width="2"/></svg>Distributed &amp; networked systems</h4>
+          <ul class="tags"><li>Collective communication</li><li>Cross-datacenter networking</li><li>RDMA</li></ul>
+        </div>
+        <div class="cluster">
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Energy-aware systems</h4>
+          <ul class="tags"><li>Energy of AI services</li><li>Measurement &amp; modeling</li><li>Radio · transport · computing</li></ul>
+        </div>
+        <div class="cluster">
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 20V10M12 20V4M17 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>How I like to work</h4>
+          <ul class="tags"><li>Experimental testbeds</li><li>Careful measurement</li><li>Reproducible evaluation</li></ul>
+        </div>
+      </div>
+    </section>
 
     <p class="closing">Thanks for reading. <a href="mailto:hong1.chen@mail.polimi.it">Say hello</a> or go <a href="index.html">back to my homepage</a>.</p>
   </main>
@@ -175,7 +331,7 @@
       if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { rootMargin: '0px 0px -8% 0px' });
+      }, { rootMargin: '0px 0px -5% 0px' });
       items.forEach(function (el) { io.observe(el); });
     })();
   </script>
