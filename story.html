@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short self-introduction of Hong Chen: from Beijing to Milan, in a few keywords and photos.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23a3272f'/%3E%3Ctext x='16' y='21.5' font-family='Arial,Helvetica,sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'%3EHC%3C/text%3E%3C/svg%3E">
+  <title>Hong Chen — Self-introduction</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root { --ink:#3e3939; --muted:#6f6868; --accent:#a3272f; --accent-soft:#f7ecec; --rule:#ddd6d3; --paper:#fff; --next:#c2610f; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.5 Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover,a:focus-visible { text-decoration:underline; }
+    a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    .page { width:min(960px,calc(100% - 64px)); margin:0 auto; padding:36px 0 80px; }
+    .back { font-size:.95rem; }
+
+    .hero { display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:48px; align-items:center; margin:44px 0 64px; }
+    .eyebrow { margin:0 0 .8rem; color:var(--accent); font-size:.85rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:0 0 1rem; color:#433d3d; font-size:clamp(2.4rem,6vw,3.6rem); line-height:1.04; letter-spacing:-.035em; }
+    .lead { margin:0; max-width:34rem; color:var(--muted); font-size:1.2rem; line-height:1.55; }
+    .portrait { width:220px; height:220px; border-radius:50%; overflow:hidden; border:4px solid #fff; box-shadow:0 0 0 2px var(--accent),0 12px 30px rgba(62,57,57,.14); }
+    .portrait img { display:block; width:100%; height:100%; object-fit:cover; }
+
+    .timeline { position:relative; list-style:none; margin:0; padding:0 0 0 56px; }
+    .timeline::before { content:''; position:absolute; left:15px; top:10px; bottom:120px; width:3px; border-radius:3px; background:linear-gradient(var(--accent),#c4797e); }
+    .timeline::after { content:''; position:absolute; left:15px; bottom:24px; height:96px; border-left:3px dashed var(--next); }
+    .stop { position:relative; margin:0 0 64px; }
+    .stop:last-child { margin-bottom:0; }
+    .stop::before { content:''; position:absolute; left:-49px; top:4px; width:19px; height:19px; border-radius:50%; background:#fff; border:4px solid var(--accent); }
+    .stop.now::before { background:var(--accent); box-shadow:0 0 0 6px var(--accent-soft); }
+    .stop.next::before { border:3px dashed var(--next); }
+    .when { margin:0 0 .25rem; color:var(--accent); font-size:1.05rem; font-weight:700; letter-spacing:.02em; }
+    .stop.next .when { color:var(--next); }
+    h2 { margin:0 0 .9rem; color:#433d3d; font-size:clamp(1.55rem,3.4vw,2.1rem); line-height:1.15; letter-spacing:-.02em; }
+    h2 .where { display:block; margin-top:.3rem; color:var(--muted); font-size:1rem; font-weight:400; letter-spacing:0; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0 0 1.2rem; padding:0; }
+    .tags li { padding:.38rem .85rem; border-radius:999px; background:var(--accent-soft); color:#7d1e24; font-size:.95rem; line-height:1.25; }
+    .stop.next .tags li { background:#fbf0e6; color:#8a4508; }
+    .photos { display:flex; gap:14px; overflow-x:auto; padding:2px 2px 8px; scrollbar-width:thin; }
+    figure { flex:none; margin:0; }
+    figure a { display:block; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(62,57,57,.12); }
+    figure img { display:block; height:250px; width:auto; transition:transform .35s ease; }
+    figure a:hover img { transform:scale(1.04); }
+    figcaption { margin-top:.45rem; color:var(--muted); font-size:.85rem; }
+    .more { margin:.6rem 0 0; font-size:.95rem; }
+
+    .closing { margin-top:72px; padding-top:22px; border-top:1px solid var(--rule); color:var(--muted); }
+
+    .js .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+    .js .reveal.in { opacity:1; transform:none; }
+    @media (prefers-reduced-motion:reduce) { .js .reveal { opacity:1; transform:none; transition:none; } figure img { transition:none; } }
+
+    @media (max-width:760px) {
+      .page { width:calc(100% - 32px); padding-top:24px; }
+      .hero { grid-template-columns:1fr; gap:24px; margin:28px 0 44px; }
+      .portrait { grid-row:1; width:132px; height:132px; }
+      .lead { font-size:1.08rem; }
+      .timeline { padding-left:40px; }
+      .timeline::before,.timeline::after { left:9px; }
+      .stop { margin-bottom:48px; }
+      .stop::before { left:-39px; width:17px; height:17px; }
+      figure img { height:190px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="index.html">← Hong Chen</a>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Self-introduction</p>
+        <h1>Hi, I’m Hong.</h1>
+        <p class="lead">From Beijing to Milan, one step at a time. Here is how I got here, in a few keywords and photos.</p>
+      </div>
+      <div class="portrait"><img src="images/story/hong-2026-face.jpg" width="480" height="480" alt="Hong Chen, 2026" width="480" height="480"></div>
+    </header>
+
+    <ol class="timeline">
+      <li class="stop reveal">
+        <p class="when">2019 – 2023</p>
+        <h2>Beijing Institute of Technology<span class="where">Beijing, China</span></h2>
+        <ul class="tags">
+          <li>B.Sc. Electronic Information Eng.</li>
+          <li>Courses across many tracks</li>
+          <li>Distributed beamforming thesis</li>
+          <li>Research assistant · wireless</li>
+        </ul>
+        <div class="photos">
+          <figure><a href="images/story/bit-me-2019.jpg"><img src="images/story/bit-me-2019.jpg" width="750" height="1000" alt="Hong at BIT, 2019" loading="lazy"></a><figcaption>Me, 2019</figcaption></figure>
+          <figure><a href="images/story/bit-campus.jpg"><img src="images/story/bit-campus.jpg" width="1000" height="666" alt="BIT campus by the lake" loading="lazy"></a><figcaption>Campus by the lake</figcaption></figure>
+          <figure><a href="images/story/bit-board.jpg"><img src="images/story/bit-board.jpg" width="727" height="1000" alt="A circuit board running a reaction game" loading="lazy"></a><figcaption>Hands-on hardware</figcaption></figure>
+        </div>
+      </li>
+
+      <li class="stop reveal">
+        <p class="when">2024</p>
+        <h2>Huawei Beijing Research Center<span class="where">Software engineer · Gateway Forwarding</span></h2>
+        <ul class="tags">
+          <li>C · packet forwarding</li>
+          <li>IPsec</li>
+          <li>A very large codebase</li>
+          <li>Logs &amp; packet traces</li>
+        </ul>
+        <div class="photos">
+          <figure><a href="images/hong-chen-2024.jpg"><img src="images/hong-chen-2024.jpg" width="1280" height="1708" alt="Hong in Beijing, 2024" loading="lazy"></a><figcaption>Me, 2024</figcaption></figure>
+          <figure><a href="images/story/huawei-street.jpg"><img src="images/story/huawei-street.jpg" width="750" height="1000" alt="Huawei Beijing Research Center at dusk" loading="lazy"></a><figcaption>Where I worked</figcaption></figure>
+        </div>
+      </li>
+
+      <li class="stop reveal">
+        <p class="when">2024 – 2026</p>
+        <h2>Politecnico di Milano<span class="where">Milan, Italy</span></h2>
+        <ul class="tags">
+          <li>M.Sc. Telecommunication Eng.</li>
+          <li>Signal processing</li>
+          <li>Wireless networks</li>
+          <li>AI</li>
+        </ul>
+        <div class="photos">
+          <figure><a href="images/story/polimi-building.jpg"><img src="images/story/polimi-building.jpg" width="750" height="1000" alt="The main building of Politecnico di Milano" loading="lazy"></a><figcaption>Politecnico di Milano</figcaption></figure>
+          <figure><a href="images/story/milan-duomo.jpg"><img src="images/story/milan-duomo.jpg" width="750" height="1000" alt="Milan Cathedral in the sun" loading="lazy"></a><figcaption>Milan</figcaption></figure>
+        </div>
+      </li>
+
+      <li class="stop reveal">
+        <p class="when">2025 – 2026</p>
+        <h2>ENSEA<span class="where">Erasmus+ exchange · Cergy, France</span></h2>
+        <ul class="tags">
+          <li>Networks, telecom &amp; security</li>
+          <li>New classmates</li>
+          <li>Another way of studying</li>
+        </ul>
+        <div class="photos">
+          <figure><a href="images/story/ensea-snow.jpg"><img src="images/story/ensea-snow.jpg" width="1000" height="750" alt="ENSEA on a snowy day" loading="lazy"></a><figcaption>Snow day at ENSEA</figcaption></figure>
+          <figure><a href="images/story/whiteboard.jpg"><img src="images/story/whiteboard.jpg" width="750" height="1000" alt="Hong working through equations on a whiteboard" loading="lazy"></a><figcaption>At the whiteboard</figcaption></figure>
+          <figure><a href="images/story/paris-eiffel.jpg"><img src="images/story/paris-eiffel.jpg" width="750" height="1000" alt="Paris street with the Eiffel Tower at night" loading="lazy"></a><figcaption>Paris in December</figcaption></figure>
+        </div>
+      </li>
+
+      <li class="stop now reveal">
+        <p class="when">2026 · Now</p>
+        <h2>M.Sc. thesis, BONSAI Lab<span class="where">DEIB, Politecnico di Milano</span></h2>
+        <ul class="tags">
+          <li>Four-GPU testbed</li>
+          <li>Network &amp; communication, adapting together</li>
+          <li>First-author paper · INET4AI 2026</li>
+        </ul>
+        <div class="photos">
+          <figure><a href="images/story/gpu-testbed.jpg"><img src="images/story/gpu-testbed.jpg" width="750" height="1000" alt="The GPU server and monitor of the thesis testbed" loading="lazy"></a><figcaption>My testbed</figcaption></figure>
+        </div>
+        <p class="more"><a href="index.html#research">More about the research →</a></p>
+      </li>
+
+      <li class="stop next reveal">
+        <p class="when">Next</p>
+        <h2>PhD research<span class="where">Starting in 2027</span></h2>
+        <ul class="tags">
+          <li>From performance to energy</li>
+          <li>Measure, then model</li>
+          <li>Radio · transport · computing</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p class="closing">Thanks for reading. <a href="mailto:hong1.chen@mail.polimi.it">Say hello</a> or go <a href="index.html">back to my homepage</a>.</p>
+  </main>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
