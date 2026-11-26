@@ -140,7 +140,7 @@
       <div>
         <p class="eyebrow">Self-introduction</p>
         <h1>Hi, I’m Hong.</h1>
-        <p class="lead">M.Sc. student in Telecommunication Engineering at <strong>Politecnico di Milano</strong>, graduating in December 2026. I work on the <strong>infrastructure behind AI</strong>: the networks and communication that distributed training runs on.</p>
+        <p class="lead">M.Sc. student in Telecommunication Engineering at <strong>Politecnico di Milano</strong>, graduating in December 2026. I work on the <strong>infrastructure behind AI</strong>: the networks and communication that distributed training runs on, and what happens to such systems when one of their parts goes wrong.</p>
       </div>
       <div class="portrait"><img src="images/2024_hong_Beijing_S01.jpg" alt="Hong Chen" width="939" height="1253"></div>
     </header>
@@ -159,6 +159,7 @@
         <h3>Communication optimization for cross-datacenter AI training</h3>
         <p class="sub">BONSAI Lab, DEIB · with Prof. Massimo Tornatore and Prof. Qiaolun Zhang</p>
         <p class="why">Fast WAN re-routing + slow collective-schedule re-optimization, coordinated on a real GPU testbed.</p>
+        <p class="why">What stayed with me: a schedule that no longer fits the network still runs, only slower, and nothing reports an error. And when a path change and a schedule change collided, the job stalled until I added an interlock between them.</p>
         <ul class="tags">
           <li>Cross-datacenter training</li>
           <li>Collective communication · NCCL / MSCCL</li>
@@ -261,7 +262,7 @@
     <!-- 03 NEXT -->
     <section class="chapter next reveal" id="next">
       <div class="chapter-head"><span class="chapter-num">03</span><h2 class="chapter-title">Next</h2></div>
-      <p class="chapter-intro">Looking for a PhD position starting in 2027.</p>
+      <p class="chapter-intro">Looking for a PhD position starting in 2027, ideally on how complex AI systems behave when their parts fail.</p>
       <div class="thinker">
         <svg class="person" viewBox="0 0 240 280" role="img" aria-label="Illustration of me thinking about why I want to do a PhD">
           <circle cx="174" cy="80" r="6" fill="#fff" stroke="#e3cfc5" stroke-width="2"/>
@@ -287,22 +288,22 @@
         </svg>
         <ul class="thoughts" aria-label="Why I want to do a PhD">
           <li class="cloud">Exploring frontier technology</li>
-          <li class="cloud tint">A strong research environment</li>
-          <li class="cloud">Fields I truly care about</li>
-          <li class="cloud tint">Sustainable development</li>
+          <li class="cloud tint">Designing systems myself</li>
+          <li class="cloud">Catching failures nobody reports</li>
+          <li class="cloud tint">Tracing errors to their source</li>
           <li class="cloud">Understanding the “why”</li>
-          <li class="cloud tint">Connecting wireless, networking &amp; AI</li>
+          <li class="cloud tint">Connecting networking, systems &amp; AI</li>
         </ul>
       </div>
       <p class="clusters-title">Where I want to go deeper</p>
       <div class="clusters">
         <div class="cluster">
-          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13v8M8.5 9.5a5 5 0 0 1 7 0M5.6 6.6a9 9 0 0 1 12.8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12.5" r="1.6" fill="currentColor"/></svg>Communications</h4>
-          <ul class="tags"><li>Wireless communications</li><li>Radio access · O-RAN</li><li>MIMO</li></ul>
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 3 8.3 7 10 4-1.7 7-5.4 7-10V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dependable AI agents</h4>
+          <ul class="tags"><li>Tool-calling agents · MCP</li><li>Multi-agent systems</li><li>Silent failures</li></ul>
         </div>
         <div class="cluster">
-          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3l2.5-6 4 13 3.5-10 2 3h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Signal processing</h4>
-          <ul class="tags"><li>Estimation &amp; detection</li><li>Adaptive filtering</li><li>Statistical learning</li></ul>
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Fault injection &amp; testing</h4>
+          <ul class="tags"><li>Fault injection</li><li>Chaos engineering</li><li>Root-cause tracing</li></ul>
         </div>
         <div class="cluster">
           <h4><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>AI systems</h4>
@@ -313,8 +314,8 @@
           <ul class="tags"><li>Collective communication</li><li>Cross-datacenter networking</li><li>RDMA</li></ul>
         </div>
         <div class="cluster">
-          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Energy-aware systems</h4>
-          <ul class="tags"><li>Energy of AI services</li><li>Measurement &amp; modeling</li><li>Radio · transport · computing</li></ul>
+          <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13v8M8.5 9.5a5 5 0 0 1 7 0M5.6 6.6a9 9 0 0 1 12.8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12.5" r="1.6" fill="currentColor"/></svg>Communications &amp; signal processing</h4>
+          <ul class="tags"><li>Wireless · O-RAN</li><li>MIMO</li><li>Estimation &amp; detection</li></ul>
         </div>
         <div class="cluster">
           <h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 20V10M12 20V4M17 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>How I like to work</h4>
